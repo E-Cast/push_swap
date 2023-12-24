@@ -1,5 +1,24 @@
 #include "push_swap.h"
 
+t_stack	*args_to_list(char **argv)
+{
+	t_stack	*stack;
+	t_stack	*new_node;
+	int		i;
+
+	i = 1;
+	stack = NULL;
+	new_node = NULL;
+	while (argv[i] != NULL)
+	{
+		new_node = node_create(ft_atoi(argv[i]));
+		node_addb(&stack, new_node);
+		i++;
+	}
+
+	return (stack);
+}
+
 int	ft_atoi(const char *str)
 {
 	size_t	i;

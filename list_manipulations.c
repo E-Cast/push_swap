@@ -63,3 +63,4 @@ void	delete_node(t_stack *node)
 	next_node->prev = prev_node;
 	free(node);
 }
+	

@@ -4,7 +4,7 @@ void	sa(t_stack **stack_a)
 {
 	int		tmp;
 
-	if (*stack_a == NULL && (*stack_a)->next == NULL)
+	if (*stack_a == NULL || (*stack_a)->next == NULL)
 		return ;
 	tmp = (*stack_a)->value;
 	(*stack_a)->value = (*stack_a)->next->value;
@@ -15,13 +15,7 @@ void	sa(t_stack **stack_a)
 
 void	sb(t_stack **stack_b)
 {
-	int		tmp;
-
-	if (*stack_b == NULL && (*stack_b)->next == NULL)
-		return ;
-	tmp = (*stack_b)->value;
-	(*stack_b)->value = (*stack_b)->next->value;
-	(*stack_b)->next->value = tmp;
+	sa(stack_b);
 
 	return ;
 }
@@ -34,8 +28,8 @@ void	ss(t_stack **stack_a, t_stack **stack_b)
 	return ;
 }
 
-void	pa(t_stack **stack_a);
-void	pb(t_stack **stack_b);
+void	pa(t_stack **stack_a, t_stack **stack_b);
+void	pb(t_stack **stack_a, t_stack **stack_b);
 
 void	ra(t_stack **stack_a);
 void	rb(t_stack **stack_b);

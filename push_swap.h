@@ -11,7 +11,7 @@ typedef struct s_stack
 }	t_stack;
 
 t_stack	*node_create(int value);
-t_stack	*node_last(t_stack *first_node);
+t_stack	*node_last(t_stack **first_node);
 void	node_addb(t_stack **first_node, t_stack *new_node);
 void	node_addf(t_stack **first_node, t_stack *new_node);
 void	node_delete(t_stack **first_node, t_stack *node);
@@ -23,5 +23,9 @@ void	print_list(t_stack **first_node);
 void	swap(t_stack **stack);
 void	swap2(t_stack **stack_1, t_stack **stack_2);
 void	push(t_stack **stack_1, t_stack **stack_2);
+void	rotate(t_stack **stack);
+void	rotate2(t_stack **stack_1, t_stack **stack_2);
+void	r_rotate(t_stack **stack);
+void	r_rotate2(t_stack **stack_1, t_stack **stack_2);
 
 #endif

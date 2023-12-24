@@ -34,10 +34,40 @@ void	push(t_stack **stack_1, t_stack **stack_2)
 	return ;
 }
 
-void	ra(t_stack **stack_a);
-void	rb(t_stack **stack_b);
-void	rr(t_stack **stack_a, t_stack **stack_b);
+void	rotate(t_stack **stack)
+{
+	t_stack	*new_node;
 
-void	rra(t_stack **stack_a);
-void	rrb(t_stack **stack_b);
-void	rrr(t_stack **stack_a, t_stack **stack_b);
+	if (stack == NULL)
+		return ;
+	new_node = node_create((*stack)->value);
+	node_addb(stack, new_node);
+	node_delete(stack, *stack);
+
+	return ;
+}
+
+void	rotate2(t_stack **stack_1, t_stack **stack_2)
+{
+	rotate(stack_1);
+	rotate(stack_2);
+}
+
+void	r_rotate(t_stack **stack)
+{
+	t_stack	*new_node;
+
+	if (stack == NULL)
+		return ;
+	new_node = node_create(node_last(stack)->value);
+	node_addf(stack, new_node);
+	node_delete(stack, node_last(stack));
+
+	return ;
+}
+
+void	r_rotate2(t_stack **stack_1, t_stack **stack_2)
+{
+	r_rotate(stack_1);
+	r_rotate(stack_2);
+}

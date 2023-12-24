@@ -54,6 +54,6 @@ void	print_list(t_stack **first_node)
 		printf("%i\n", new_node->value);
 		new_node = new_node->next;
 	}
-
+	printf("\n");
 	return ;
 }

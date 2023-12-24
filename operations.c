@@ -13,16 +13,26 @@ void	swap(t_stack **stack)
 	return ;
 }
 
-void	swap2(t_stack **stack_a, t_stack **stack_b)
+void	swap2(t_stack **stack_1, t_stack **stack_2)
 {
-	swap(stack_a);
-	swap(stack_b);
+	swap(stack_1);
+	swap(stack_2);
 
 	return ;
 }
 
-void	pa(t_stack **stack_a, t_stack **stack_b);
-void	pb(t_stack **stack_a, t_stack **stack_b);
+void	push(t_stack **stack_1, t_stack **stack_2)
+{
+	t_stack	*new_node;
+
+	if (*stack_1 == NULL)
+		return ;
+	new_node = node_create((*stack_1)->value);
+	node_addb(stack_2, new_node);
+	node_delete(stack_1, *stack_1);
+
+	return ;
+}
 
 void	ra(t_stack **stack_a);
 void	rb(t_stack **stack_b);

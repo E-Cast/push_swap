@@ -21,6 +21,7 @@ int		ft_atoi(const char *str);
 void	print_list(t_stack **first_node);
 
 void	swap(t_stack **stack);
-void	swap2(t_stack **stack_a, t_stack **stack_b);
+void	swap2(t_stack **stack_1, t_stack **stack_2);
+void	push(t_stack **stack_1, t_stack **stack_2);
 
 #endif

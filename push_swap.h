@@ -1,6 +1,7 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include <stdlib.h>
+# include <stdio.h>
 
 typedef struct s_stack
 {
@@ -9,10 +10,16 @@ typedef struct s_stack
 	struct s_stack	*prev;
 }	t_stack;
 
-t_stack	*make_new_node(int value);
-t_stack	*get_last_node(t_stack *first_node);
-void	add_node_back(t_stack **first_node, t_stack *new_node);
-void	add_node_front(t_stack **first_node, t_stack *new_node);
-void	delete_node(t_stack *node);
+t_stack	*node_create(int value);
+t_stack	*node_last(t_stack *first_node);
+void	node_addb(t_stack **first_node, t_stack *new_node);
+void	node_addf(t_stack **first_node, t_stack *new_node);
+void	node_delete(t_stack **first_node, t_stack *node);
+
+int		ft_atoi(const char *str);
+
+void	sa(t_stack **stack_a);
+void	sb(t_stack **stack_b);
+void	ss(t_stack **stack_a, t_stack **stack_b);
 
 #endif

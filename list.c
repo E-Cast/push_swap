@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-t_stack	*make_new_node(int value)
+t_stack	*node_create(int value)
 {
 	t_stack	*node;
 
@@ -13,7 +13,7 @@ t_stack	*make_new_node(int value)
 	return (node);
 }
 
-t_stack	*get_last_node(t_stack *first_node)
+t_stack	*node_last(t_stack *first_node)
 {
 	t_stack	*current_node;
 
@@ -25,7 +25,7 @@ t_stack	*get_last_node(t_stack *first_node)
 	return (current_node);
 }
 
-void	add_node_back(t_stack **first_node, t_stack *new_node)
+void	node_addb(t_stack **first_node, t_stack *new_node)
 {
 	t_stack	*current_node;
 
@@ -35,13 +35,13 @@ void	add_node_back(t_stack **first_node, t_stack *new_node)
 		*first_node = new_node;
 	else
 	{
-		current_node = ft_lstlast(*first_node);
+		current_node = node_last(*first_node);
 		current_node->next = new_node;
 		new_node->prev = current_node;
 	}
 }
 
-void	add_node_front(t_stack **first_node, t_stack *new_node)
+void	node_addf(t_stack **first_node, t_stack *new_node)
 {
 	if (!new_node)
 		return ;
@@ -50,17 +50,23 @@ void	add_node_front(t_stack **first_node, t_stack *new_node)
 	*first_node = new_node;
 }
 
-void	delete_node(t_stack *node)
+void	node_delete(t_stack **first_node, t_stack *node)
 {
 	t_stack	*prev_node;
 	t_stack	*next_node;
 
 	if (node == NULL)
 		return ;
+
 	prev_node = node->prev;
 	next_node = node->next;
-	prev_node->next = next_node;
-	next_node->prev = prev_node;
+
+	if (prev_node)
+		prev_node->next = next_node;
+	if (next_node)
+		next_node->prev = prev_node;
+	if (*first_node == node)
+		*first_node = (*first_node)->next;
 	free(node);
 }
-	
+

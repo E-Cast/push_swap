@@ -24,3 +24,17 @@ int	ft_atoi(const char *str)
 	}
 	return (num);
 }
+
+void	print_list(t_stack **first_node)
+{
+	t_stack	*new_node;
+
+	new_node = *first_node;
+	while (new_node != NULL)
+	{
+		printf("%i\n", new_node->value);
+		new_node = new_node->next;
+	}
+
+	return ;
+}

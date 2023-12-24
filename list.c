@@ -69,4 +69,3 @@ void	node_delete(t_stack **first_node, t_stack *node)
 		*first_node = (*first_node)->next;
 	free(node);
 }
-

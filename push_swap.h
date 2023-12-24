@@ -17,9 +17,9 @@ void	node_addf(t_stack **first_node, t_stack *new_node);
 void	node_delete(t_stack **first_node, t_stack *node);
 
 int		ft_atoi(const char *str);
+void	print_list(t_stack **first_node);
 
-void	sa(t_stack **stack_a);
-void	sb(t_stack **stack_b);
-void	ss(t_stack **stack_a, t_stack **stack_b);
+void	swap(t_stack **stack);
+void	swap2(t_stack **stack_a, t_stack **stack_b);
 
 #endif

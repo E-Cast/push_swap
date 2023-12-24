@@ -1,29 +1,22 @@
 #include "push_swap.h"
 
-void	sa(t_stack **stack_a)
+void	swap(t_stack **stack)
 {
 	int		tmp;
 
-	if (*stack_a == NULL || (*stack_a)->next == NULL)
+	if (*stack == NULL || (*stack)->next == NULL)
 		return ;
-	tmp = (*stack_a)->value;
-	(*stack_a)->value = (*stack_a)->next->value;
-	(*stack_a)->next->value = tmp;
+	tmp = (*stack)->value;
+	(*stack)->value = (*stack)->next->value;
+	(*stack)->next->value = tmp;
 
 	return ;
 }
 
-void	sb(t_stack **stack_b)
+void	swap2(t_stack **stack_a, t_stack **stack_b)
 {
-	sa(stack_b);
-
-	return ;
-}
-
-void	ss(t_stack **stack_a, t_stack **stack_b)
-{
-	sa(stack_a);
-	sb(stack_b);
+	swap(stack_a);
+	swap(stack_b);
 
 	return ;
 }

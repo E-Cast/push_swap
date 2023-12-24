@@ -21,11 +21,19 @@ int		ft_atoi(const char *str);
 void	print_list(t_stack **first_node);
 
 void	swap(t_stack **stack);
-void	swap2(t_stack **stack_1, t_stack **stack_2);
+void	sa(t_stack **stack_a);
+void	sb(t_stack **stack_b);
+void	ss(t_stack **stack_a, t_stack **stack_b);
 void	push(t_stack **stack_1, t_stack **stack_2);
+void	pa(t_stack **stack_b, t_stack **stack_a);
+void	pb(t_stack **stack_a, t_stack **stack_b);
 void	rotate(t_stack **stack);
-void	rotate2(t_stack **stack_1, t_stack **stack_2);
+void	ra(t_stack **stack_a);
+void	rb(t_stack **stack_b);
+void	rr(t_stack **stack_a, t_stack **stack_b);
 void	r_rotate(t_stack **stack);
-void	r_rotate2(t_stack **stack_1, t_stack **stack_2);
+void	rra(t_stack **stack_a);
+void	rrb(t_stack **stack_b);
+void	rrr(t_stack **stack_a, t_stack **stack_b);
 
 #endif

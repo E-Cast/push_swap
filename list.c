@@ -55,22 +55,31 @@ void	node_addf(t_stack **first_node, t_stack *new_node)
 	}
 }
 
-void	node_delete(t_stack **first_node, t_stack *node)
+t_stack	*node_unlink(t_stack **first_node, t_stack *node)
 {
 	t_stack	*prev_node;
 	t_stack	*next_node;
 
 	if (node == NULL)
-		return ;
+		return (NULL);
 
 	prev_node = node->prev;
 	next_node = node->next;
+	node->prev = NULL;
+	node->next = NULL;
 
 	if (prev_node)
 		prev_node->next = next_node;
 	if (next_node)
 		next_node->prev = prev_node;
 	if (*first_node == node)
-		*first_node = (*first_node)->next;
-	free(node);
+		*first_node = next_node;
+	return (node);
+}
+
+void	node_delete(t_stack **first_node, t_stack *node)
+{
+	node = node_unlink(first_node, node);
+	if (node)
+		free(node);
 }

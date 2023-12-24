@@ -9,8 +9,6 @@ void	swap(t_stack **stack)
 	tmp = (*stack)->value;
 	(*stack)->value = (*stack)->next->value;
 	(*stack)->next->value = tmp;
-
-	return ;
 }
 
 void	sa(t_stack **stack_a)

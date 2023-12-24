@@ -1,6 +1,5 @@
 #include "push_swap.h"
 
-// Takes an int as argument and creates a new node with it as value
 t_stack	*make_new_node(int value)
 {
 	t_stack	*node;
@@ -14,7 +13,6 @@ t_stack	*make_new_node(int value)
 	return (node);
 }
 
-// Takes a pointer to a node of a list and returns the last node of that list
 t_stack	*get_last_node(t_stack *first_node)
 {
 	t_stack	*current_node;
@@ -27,7 +25,6 @@ t_stack	*get_last_node(t_stack *first_node)
 	return (current_node);
 }
 
-// Takes a pointer to 
 void	add_node_back(t_stack **first_node, t_stack *new_node)
 {
 	t_stack	*current_node;
@@ -42,4 +39,27 @@ void	add_node_back(t_stack **first_node, t_stack *new_node)
 		current_node->next = new_node;
 		new_node->prev = current_node;
 	}
+}
+
+void	add_node_front(t_stack **first_node, t_stack *new_node)
+{
+	if (!new_node)
+		return ;
+	new_node->next = *first_node;
+	(*first_node)->prev = new_node;
+	*first_node = new_node;
+}
+
+void	delete_node(t_stack *node)
+{
+	t_stack	*prev_node;
+	t_stack	*next_node;
+
+	if (node == NULL)
+		return ;
+	prev_node = node->prev;
+	next_node = node->next;
+	prev_node->next = next_node;
+	next_node->prev = prev_node;
+	free(node);
 }

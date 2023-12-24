@@ -28,7 +28,7 @@ void	push(t_stack **stack_1, t_stack **stack_2)
 	if (*stack_1 == NULL)
 		return ;
 	new_node = node_create((*stack_1)->value);
-	node_addb(stack_2, new_node);
+	node_addf(stack_2, new_node);
 	node_delete(stack_1, *stack_1);
 
 	return ;

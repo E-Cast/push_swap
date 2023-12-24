@@ -20,4 +20,7 @@ int	main(int argc, char **argv)
 	push(&stack_a, &stack_b);
 	print_list(&stack_b);
 	print_list(&stack_a);
+	push(&stack_b, &stack_a);
+	print_list(&stack_b);
+	print_list(&stack_a);
 }

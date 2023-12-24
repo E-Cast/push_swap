@@ -45,9 +45,14 @@ void	node_addf(t_stack **first_node, t_stack *new_node)
 {
 	if (!new_node)
 		return ;
-	new_node->next = *first_node;
-	(*first_node)->prev = new_node;
-	*first_node = new_node;
+	if (!*first_node)
+		*first_node = new_node;
+	else
+	{
+		new_node->next = *first_node;
+		(*first_node)->prev = new_node;
+		*first_node = new_node;
+	}
 }
 
 void	node_delete(t_stack **first_node, t_stack *node)

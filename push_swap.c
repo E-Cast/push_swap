@@ -15,31 +15,30 @@ int	main(int argc, char **argv)
 	stack_b = &tmp_b;
 
 	printf("start\n");
-	print_list(stack_a);
+	print_list(stack_a, stack_b);
 
 	sa(stack_a);
-	print_list(stack_a);
+	print_list(stack_a, stack_b);
 
 	pb(stack_a, stack_b);
 	pb(stack_a, stack_b);
 	pb(stack_a, stack_b);
-	print_list(stack_b);
-	print_list(stack_a);
+	pb(stack_a, stack_b);
+	pb(stack_a, stack_b);
+	pb(stack_a, stack_b);
+	print_list(stack_a, stack_b);
 
 	rr(stack_a, stack_b);
-	print_list(stack_b);
-	print_list(stack_a);
+	print_list(stack_a, stack_b);
 
 	rrr(stack_a, stack_b);
-	print_list(stack_b);
-	print_list(stack_a);
+	print_list(stack_a, stack_b);
 
 	sa(stack_a);
-	print_list(stack_b);
-	print_list(stack_a);
+	print_list(stack_a, stack_b);
 
 	pa(stack_b, stack_a);
 	pa(stack_b, stack_a);
 	pa(stack_b, stack_a);
-	print_list(stack_a);
+	print_list(stack_a, stack_b);
 }

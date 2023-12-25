@@ -4,7 +4,7 @@ void	swap(t_stack **stack)
 {
 	int		tmp;
 
-	if (*stack == NULL || (*stack)->next == NULL)
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 		return ;
 	tmp = (*stack)->value;
 	(*stack)->value = (*stack)->next->value;

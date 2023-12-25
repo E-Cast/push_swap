@@ -4,7 +4,7 @@ void	r_rotate(t_stack **stack)
 {
 	t_stack	*new_node;
 
-	if (stack == NULL)
+	if (stack == NULL || *stack == NULL)
 		return ;
 	new_node = node_create(node_last(stack)->value);
 	node_addf(stack, new_node);

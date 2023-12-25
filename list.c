@@ -62,12 +62,10 @@ t_stack	*node_unlink(t_stack **first_node, t_stack *node)
 
 	if (node == NULL)
 		return (NULL);
-
 	prev_node = node->prev;
 	next_node = node->next;
 	node->prev = NULL;
 	node->next = NULL;
-
 	if (prev_node)
 		prev_node->next = next_node;
 	if (next_node)

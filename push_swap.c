@@ -35,10 +35,6 @@ void	super_algorithm_x3000(t_stack **stack_a, t_stack **stack_b)
 			cursor = cursor->next;
 			i++;
 		}
-		if (total - position + 1 < position)
-		{
-
-		}
 		if (total - position > position)
 		{
 			while (position > 0)

@@ -15,7 +15,6 @@ t_stack	*args_to_list(char **argv)
 		node_addb(&stack, new_node);
 		i++;
 	}
-
 	return (stack);
 }
 

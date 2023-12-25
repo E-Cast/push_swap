@@ -21,8 +21,8 @@ t_stack	*node_unlink(t_stack **first_node, t_stack *node);
 // utility functions
 t_stack	*args_to_list(char **argv);
 int		ft_atoi(const char *str);
-// void	print_list(t_stack **first_node);
 void	print_list(t_stack **stack_1, t_stack **stack_2);
+
 
 // sorting operation functions
 void	swap(t_stack **stack);

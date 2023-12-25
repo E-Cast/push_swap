@@ -1,44 +1,83 @@
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	super_algorithm_x3000(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack	*tmp_a;
-	t_stack	*tmp_b;
-	t_stack	**stack_a;
-	t_stack	**stack_b;
-
-	if (argc == 1)
-		return (1);
-	tmp_a = args_to_list(argv);
-	tmp_b = NULL;
-	stack_a = &tmp_a;
-	stack_b = &tmp_b;
+	t_stack	*cursor;
+	int		smallest;
+	int		position;
+	int		i;
+	int		total;
+	int		moves;
 
 	printf("start\n");
 	print_list(stack_a, stack_b);
+	moves = 0;
+	while (*stack_a)
+	{
+		cursor = *stack_a;
+		total = 0;
+		while (cursor)
+		{
+			cursor = cursor->next;
+			total++;
+		}
+		cursor = *stack_a;
+		smallest = cursor->value;
+		position = 0;
+		i = 0;
+		while (cursor)
+		{
+			if (smallest > cursor->value)
+			{
+				smallest = cursor->value;
+				position = i;
+			}
+			cursor = cursor->next;
+			i++;
+		}
+		if (total - position + 1 < position)
+		{
 
-	sa(stack_a);
+		}
+		if (total - position > position)
+		{
+			while (position > 0)
+			{
+				ra(stack_a);
+				moves++;
+				position--;
+			}
+		}
+		else
+		{
+			while (position < total)
+			{
+				rra(stack_a);
+				moves++;
+				position++;
+			}
+		}
+		pb(stack_a, stack_b);
+		moves++;
+		print_list(stack_a, stack_b);
+	}
+	while (*stack_b)
+	{
+		pa(stack_b, stack_a);
+		moves++;
+	}
 	print_list(stack_a, stack_b);
+	printf("MOVES:%i", moves);
+}
 
-	pb(stack_a, stack_b);
-	pb(stack_a, stack_b);
-	pb(stack_a, stack_b);
-	pb(stack_a, stack_b);
-	pb(stack_a, stack_b);
-	pb(stack_a, stack_b);
-	print_list(stack_a, stack_b);
+int	main(int argc, char **argv)
+{
+	t_stack	*stack_a;
+	t_stack	*stack_b;
 
-	rr(stack_a, stack_b);
-	print_list(stack_a, stack_b);
-
-	rrr(stack_a, stack_b);
-	print_list(stack_a, stack_b);
-
-	sa(stack_a);
-	print_list(stack_a, stack_b);
-
-	pa(stack_b, stack_a);
-	pa(stack_b, stack_a);
-	pa(stack_b, stack_a);
-	print_list(stack_a, stack_b);
+	if (argc == 1)
+		return (1);
+	stack_a = args_to_list(argv);
+	stack_b = NULL;
+	super_algorithm_x3000(&stack_a, &stack_b);
 }

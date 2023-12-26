@@ -34,15 +34,15 @@ void	terminate(t_stack **stack_1, t_stack **stack_2)
 
 	while (stack_1 != NULL && *stack_1 != NULL)
 	{
-		node = *stack_1;
-		*stack_1 = (*stack_1)->next;
-		free(node);
+		node = node_unlink(stack_1, *stack_1);
+		if (node)
+			free(node);
 	}
 	while (stack_2 != NULL && *stack_2 != NULL)
 	{
-		node = *stack_2;
-		*stack_2 = (*stack_2)->next;
-		free(node);
+		node = node_unlink(stack_2, *stack_2);
+		if (node)
+			free(node);
 	}
 	printf("Error");
 	exit(EXIT_FAILURE);

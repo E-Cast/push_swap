@@ -74,10 +74,3 @@ t_stack	*node_unlink(t_stack **first_node, t_stack *node)
 		*first_node = next_node;
 	return (node);
 }
-
-void	node_delete(t_stack **first_node, t_stack *node)
-{
-	node = node_unlink(first_node, node);
-	if (node)
-		free(node);
-}

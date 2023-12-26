@@ -74,7 +74,6 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		return (1);
 	stack_a = args_to_list(argv, NULL);
-	printf("%i\n\n\n", node_last(&stack_a)->value);
 	stack_b = NULL;
 	super_algorithm_x3000(&stack_a, &stack_b);
 }

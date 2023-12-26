@@ -15,7 +15,8 @@ X Better Parsing
 	- add function to set and use that data
 	- make something to avoid over rotation
 - Clean up code
-- Make sure I'm freeing and returning errors correctly
+	- Make sure I'm freeing and returning errors correctly
+	- Check for leaks
 - Make a Makefile
 
 "renamed parsing.c to args.c and moved it to src. Changed rotate and r rotate to use unlink instead of delete and create. Created the terminate function and substituted all exit calls for it"

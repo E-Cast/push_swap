@@ -17,7 +17,6 @@ t_stack	*node_create(int value, t_stack **stack);
 t_stack	*node_last(t_stack **first_node);
 void	node_addb(t_stack **first_node, t_stack *new_node);
 void	node_addf(t_stack **first_node, t_stack *new_node);
-void	node_delete(t_stack **first_node, t_stack *node);
 t_stack	*node_unlink(t_stack **first_node, t_stack *node);
 
 // parsing functions

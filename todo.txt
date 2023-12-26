@@ -1,0 +1,16 @@
+- Better Parsing
+	- Handle strings like "1 2 3 4"
+	- Handle a mix of strings and integers like so "12 1" 3 4 "5 6 76" 2
+- Error handling;
+	- Allocation Error
+	- Input Errors;
+		- Not an integer
+		- Duplicate integer
+		- Argument too big or too small
+		- Incorrect format
+- Improve the algorithm
+	- add more data to the nodes
+	- add function to set and use that data
+	- make something to avoid over rotation
+- Clean up code
+- Make a Makefile

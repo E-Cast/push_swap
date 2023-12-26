@@ -28,16 +28,25 @@ int	ft_atoi(const char *str)
 t_stack	*args_to_list(char **argv)
 {
 	t_stack	*stack;
-	t_stack	*new_node;
 	int		i;
+	int		j;
 
-	i = 1;
 	stack = NULL;
-	new_node = NULL;
+	i = 1;
 	while (argv[i] != NULL)
 	{
-		new_node = node_create(ft_atoi(argv[i]));
-		node_addb(&stack, new_node);
+		j = 0;
+		while (argv[i] && argv[i][j] != '\0')
+		{
+			if (argv[i][j] != ' ')
+			{
+				node_addb(&stack, node_create(ft_atoi(&argv[i][j])));
+				while (argv[i][j] != '\0' && argv[i][j] != ' ')
+					j++;
+			}
+			else
+				j++;
+		}
 		i++;
 	}
 	return (stack);

@@ -10,7 +10,7 @@ typedef struct s_stack
 	struct s_stack	*prev;
 }	t_stack;
 
-# define VALID_CHARS " +-1234567890"
+# define VALID_CHARS " 1234567890"
 
 // list manipulation functions
 t_stack	*node_create(int value);
@@ -26,7 +26,8 @@ int		ft_atoi(const char *str);
 
 // utility functions
 void	print_list(t_stack **stack_1, t_stack **stack_2);
-void	is_char_valid(char chr);
+// void	is_char_valid(char chr);
+void	is_char_valid(char *chr);
 
 // sorting operation functions
 void	swap(t_stack **stack);

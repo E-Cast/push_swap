@@ -25,14 +25,16 @@ int	ft_atoi(const char *str)
 	return (num);
 }
 
-void	is_char_valid(char chr)
+void	is_char_valid(char *chr)
 {
 	int	i;
 
 	i = 0;
 	while (VALID_CHARS[i] != '\0')
 	{
-		if (VALID_CHARS[i] == chr)
+		if (VALID_CHARS[i] == chr[0])
+			return ;
+		if ((chr[0] == '+' || chr[0] == '-') && chr[1] >= '0' && chr[1] <= '9')
 			return ;
 		i++;
 	}
@@ -55,10 +57,10 @@ t_stack	*args_to_list(char **argv, t_stack *stack)
 			{
 				node_addb(&stack, node_create(ft_atoi(&argv[i][j])));
 				while (argv[i][j] != '\0' && argv[i][j] != ' ')
-					is_char_valid(argv[i][j++]);
+					is_char_valid(&argv[i][j++]);
 			}
 			else
-				is_char_valid(argv[i][j++]);
+				is_char_valid(&argv[i][j++]);
 		}
 		i++;
 	}

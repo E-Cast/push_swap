@@ -9,8 +9,8 @@ void	super_algorithm_x3000(t_stack **stack_a, t_stack **stack_b)
 	int		total;
 	int		moves;
 
-	printf("start\n");
-	print_list(stack_a, stack_b);
+	// printf("start\n");
+	// print_list(stack_a, stack_b);
 	moves = 0;
 	while (*stack_a)
 	{
@@ -55,15 +55,15 @@ void	super_algorithm_x3000(t_stack **stack_a, t_stack **stack_b)
 		}
 		pb(stack_a, stack_b);
 		moves++;
-		print_list(stack_a, stack_b);
+		// print_list(stack_a, stack_b);
 	}
 	while (*stack_b)
 	{
 		pa(stack_b, stack_a);
 		moves++;
 	}
-	print_list(stack_a, stack_b);
-	printf("MOVES:%i", moves);
+	// print_list(stack_a, stack_b);
+	// printf("MOVES:%i", moves);
 }
 
 int	main(int argc, char **argv)

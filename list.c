@@ -6,7 +6,10 @@ t_stack	*node_create(int value)
 
 	node = malloc(sizeof(t_stack));
 	if (!node)
-		return (NULL);
+	{
+		printf("Error\n");
+		exit(EXIT_FAILURE);
+	}
 	node->value = value;
 	node->next = NULL;
 	node->prev = NULL;

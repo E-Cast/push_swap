@@ -9,8 +9,8 @@ void	super_algorithm_x3000(t_stack **stack_a, t_stack **stack_b)
 	int		total;
 	int		moves;
 
-	// printf("start\n");
-	// print_list(stack_a, stack_b);
+	printf("start\n");
+	print_list(stack_a, stack_b);
 	moves = 0;
 	while (*stack_a)
 	{
@@ -63,7 +63,7 @@ void	super_algorithm_x3000(t_stack **stack_a, t_stack **stack_b)
 		moves++;
 	}
 	print_list(stack_a, stack_b);
-	// printf("MOVES:%i", moves);
+	printf("MOVES:%i", moves);
 }
 
 int	main(int argc, char **argv)
@@ -73,8 +73,8 @@ int	main(int argc, char **argv)
 
 	if (argc == 1)
 		return (1);
-	// char_check(argv);
 	stack_a = args_to_list(argv, NULL);
+	printf("%i\n\n\n", node_last(&stack_a)->value);
 	stack_b = NULL;
 	super_algorithm_x3000(&stack_a, &stack_b);
 }

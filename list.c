@@ -1,15 +1,12 @@
 #include "push_swap.h"
 
-t_stack	*node_create(int value)
+t_stack	*node_create(int value, t_stack **stack)
 {
 	t_stack	*node;
 
 	node = malloc(sizeof(t_stack));
 	if (!node)
-	{
-		printf("Error\n");
-		exit(EXIT_FAILURE);
-	}
+		terminate(stack, NULL);
 	node->value = value;
 	node->next = NULL;
 	node->prev = NULL;

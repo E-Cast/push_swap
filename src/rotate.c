@@ -6,9 +6,8 @@ void	rotate(t_stack **stack)
 
 	if (stack == NULL || *stack == NULL)
 		return ;
-	new_node = node_create((*stack)->value);
+	new_node = node_unlink(stack, *stack);
 	node_addb(stack, new_node);
-	node_delete(stack, *stack);
 }
 
 void	ra(t_stack **stack_a)

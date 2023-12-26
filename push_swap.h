@@ -13,7 +13,7 @@ typedef struct s_stack
 # define VALID_CHARS " 1234567890"
 
 // list manipulation functions
-t_stack	*node_create(int value);
+t_stack	*node_create(int value, t_stack **stack);
 t_stack	*node_last(t_stack **first_node);
 void	node_addb(t_stack **first_node, t_stack *new_node);
 void	node_addf(t_stack **first_node, t_stack *new_node);
@@ -26,8 +26,8 @@ int		ft_atoi(const char *str);
 
 // utility functions
 void	print_list(t_stack **stack_1, t_stack **stack_2);
-// void	is_char_valid(char chr);
-void	is_char_valid(char *chr);
+void	terminate(t_stack **stack_1, t_stack **stack_2);
+void	is_char_valid(char *chr, t_stack **stack);
 
 // sorting operation functions
 void	swap(t_stack **stack);

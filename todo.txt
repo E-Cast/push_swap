@@ -8,11 +8,14 @@ X Better Parsing
 			32 43 45 48 to 57
 		- Duplicate integer
 		- Argument too big or too small
-		- Incorrect format ("")
-		- Free the entire list if you encounter an error
+		- Incorrect format (no clue what counts as an incorect format)
+		x Free the entire list if you encounter an error
 - Improve the algorithm
 	- add more data to the nodes
 	- add function to set and use that data
 	- make something to avoid over rotation
 - Clean up code
+- Make sure I'm freeing and returning errors correctly
 - Make a Makefile
+
+"renamed parsing.c to args.c and moved it to src. Changed rotate and r rotate to use unlink instead of delete and create. Created the terminate function and substituted all exit calls for it"

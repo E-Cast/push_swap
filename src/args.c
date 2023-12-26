@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	ft_atoi(const char *str)
 {
@@ -25,7 +25,7 @@ int	ft_atoi(const char *str)
 	return (num);
 }
 
-void	is_char_valid(char *chr)
+void	is_char_valid(char *chr, t_stack **stack)
 {
 	int	i;
 
@@ -38,8 +38,7 @@ void	is_char_valid(char *chr)
 			return ;
 		i++;
 	}
-	printf("Error\n");
-	exit(EXIT_FAILURE);
+	terminate(stack, NULL);
 }
 
 t_stack	*args_to_list(char **argv, t_stack *stack)
@@ -55,12 +54,12 @@ t_stack	*args_to_list(char **argv, t_stack *stack)
 		{
 			if (argv[i][j] != ' ')
 			{
-				node_addb(&stack, node_create(ft_atoi(&argv[i][j])));
+				node_addb(&stack, node_create(ft_atoi(&argv[i][j]), &stack));
 				while (argv[i][j] != '\0' && argv[i][j] != ' ')
-					is_char_valid(&argv[i][j++]);
+					is_char_valid(&argv[i][j++], &stack);
 			}
 			else
-				is_char_valid(&argv[i][j++]);
+				is_char_valid(&argv[i][j++], &stack);
 		}
 		i++;
 	}

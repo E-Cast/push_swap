@@ -40,25 +40,6 @@ void	is_char_valid(char chr)
 	exit(EXIT_FAILURE);
 }
 
-void	char_check(char **argv)
-{
-	int	i;
-	int	j;
-
-	i = 1;
-	j = 0;
-	while (argv[i] != NULL)
-	{
-		j = 0;
-		while (argv[i] && argv[i][j] != '\0')
-		{
-			is_char_valid(argv[i][j]);
-			j++;
-		}
-		i++;
-	}
-}
-
 t_stack	*args_to_list(char **argv, t_stack *stack)
 {
 	int		i;
@@ -74,10 +55,10 @@ t_stack	*args_to_list(char **argv, t_stack *stack)
 			{
 				node_addb(&stack, node_create(ft_atoi(&argv[i][j])));
 				while (argv[i][j] != '\0' && argv[i][j] != ' ')
-					j++;
+					is_char_valid(argv[i][j++]);
 			}
 			else
-				j++;
+				is_char_valid(argv[i][j++]);
 		}
 		i++;
 	}

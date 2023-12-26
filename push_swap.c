@@ -73,7 +73,7 @@ int	main(int argc, char **argv)
 
 	if (argc == 1)
 		return (1);
-	char_check(argv);
+	// char_check(argv);
 	stack_a = args_to_list(argv, NULL);
 	stack_b = NULL;
 	super_algorithm_x3000(&stack_a, &stack_b);

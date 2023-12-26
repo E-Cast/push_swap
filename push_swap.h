@@ -26,7 +26,7 @@ int		ft_atoi(const char *str);
 
 // utility functions
 void	print_list(t_stack **stack_1, t_stack **stack_2);
-void	char_check(char **argv);
+void	is_char_valid(char chr);
 
 // sorting operation functions
 void	swap(t_stack **stack);

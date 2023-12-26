@@ -25,13 +25,45 @@ int	ft_atoi(const char *str)
 	return (num);
 }
 
-t_stack	*args_to_list(char **argv)
+void	is_char_valid(char chr)
 {
-	t_stack	*stack;
+	int	i;
+
+	i = 0;
+	while (VALID_CHARS[i] != '\0')
+	{
+		if (VALID_CHARS[i] == chr)
+			return ;
+		i++;
+	}
+	printf("Error\n");
+	exit(EXIT_FAILURE);
+}
+
+void	char_check(char **argv)
+{
+	int	i;
+	int	j;
+
+	i = 1;
+	j = 0;
+	while (argv[i] != NULL)
+	{
+		j = 0;
+		while (argv[i] && argv[i][j] != '\0')
+		{
+			is_char_valid(argv[i][j]);
+			j++;
+		}
+		i++;
+	}
+}
+
+t_stack	*args_to_list(char **argv, t_stack *stack)
+{
 	int		i;
 	int		j;
 
-	stack = NULL;
 	i = 1;
 	while (argv[i] != NULL)
 	{

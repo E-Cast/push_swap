@@ -4,10 +4,12 @@ X Better Parsing
 - Error handling;
 	X Allocation Error
 	- Input Errors;
-		- Not an integer
+		- Invalid character (valid characters: " +-1234567890") 
+			32 43 45 48 to 57
 		- Duplicate integer
 		- Argument too big or too small
 		- Incorrect format
+		- Free the entire list if you encounter an error
 - Improve the algorithm
 	- add more data to the nodes
 	- add function to set and use that data

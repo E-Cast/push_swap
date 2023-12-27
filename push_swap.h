@@ -11,6 +11,8 @@ typedef struct s_stack
 }	t_stack;
 
 # define VALID_CHARS " 1234567890"
+# define INT_MAX "2147483647"
+# define INT_MIN "2147483648"
 
 // list manipulation functions
 t_stack	*node_create(int value, t_stack **stack);
@@ -20,13 +22,14 @@ void	node_addf(t_stack **first_node, t_stack *new_node);
 t_stack	*node_unlink(t_stack **first_node, t_stack *node);
 
 // parsing functions
+void	is_char_valid(char *chr, t_stack **stack);
+void	size_check(char	*str, const char *max, t_stack **stack);
 t_stack	*args_to_list(char **argv, t_stack *stack);
-int		ft_atoi(const char *str);
+int		str_to_int(const char *str);
 
 // utility functions
 void	print_list(t_stack **stack_1, t_stack **stack_2);
 void	terminate(t_stack **stack_1, t_stack **stack_2);
-void	is_char_valid(char *chr, t_stack **stack);
 
 // sorting operation functions
 void	swap(t_stack **stack);

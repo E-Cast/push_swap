@@ -1,6 +1,29 @@
 #include "../push_swap.h"
+#include <limits.h>
 
-int	ft_atoi(const char *str)
+void	size_check(char	*str, const char *max, t_stack **stack)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] >= '0' && str[i] <= '9')
+		i++;
+	if (i > 10)
+		terminate(stack, NULL);
+	if (i < 10)
+		return ;
+	i = 0;
+	while (i < 10)
+	{
+		if (str[i] > max[i])
+			terminate(stack, NULL);
+		if (str[i] < max[i])
+			return ;
+		i++;
+	}
+}
+
+int	str_to_int(const char *str)
 {
 	size_t	i;
 	int		sign;
@@ -11,11 +34,11 @@ int	ft_atoi(const char *str)
 	i = 0;
 	sign = 1;
 	num = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
-		i++;
-	if (str[i] == '-')
+	if (str[0] == '-')
+	{
 		sign = -1;
-	if (str[i] == '+' || str[i] == '-')
+	}
+	if (str[0] == '+' || str[0] == '-')
 		i++;
 	while (str[i] && (str[i] >= '0' && str[i] <= '9'))
 	{
@@ -25,7 +48,7 @@ int	ft_atoi(const char *str)
 	return (num);
 }
 
-void	is_char_valid(char *chr, t_stack **stack)
+void	char_check(char *chr, t_stack **stack)
 {
 	int	i;
 
@@ -54,7 +77,7 @@ t_stack	*args_to_list(char **argv, t_stack *stack)
 		{
 			if (argv[i][j] != ' ')
 			{
-				node_addb(&stack, node_create(ft_atoi(&argv[i][j]), &stack));
+				node_addb(&stack, node_create(str_to_int(&argv[i][j]), &stack));
 				while (argv[i][j] != '\0' && argv[i][j] != ' ')
 					is_char_valid(&argv[i][j++], &stack);
 			}

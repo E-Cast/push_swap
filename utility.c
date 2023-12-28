@@ -28,7 +28,7 @@ void	print_list(t_stack **stack_1, t_stack **stack_2)
 	return ;
 }
 
-void	terminate(t_stack **stack_1, t_stack **stack_2)
+void	terminate(t_stack **stack_1, t_stack **stack_2, int status)
 {
 	t_stack	*node;
 
@@ -44,6 +44,11 @@ void	terminate(t_stack **stack_1, t_stack **stack_2)
 		if (node)
 			free(node);
 	}
-	printf("Error");
-	exit(EXIT_FAILURE);
+	if (status == EXIT_FAILURE)
+	{
+		printf("Error");
+		exit(EXIT_FAILURE);
+	}
+	else
+		exit(EXIT_SUCCESS);
 }

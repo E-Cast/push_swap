@@ -73,7 +73,10 @@ int	main(int argc, char **argv)
 
 	if (argc == 1)
 		return (1);
-	size_check(argv[1], INT_MAX, NULL);
+	// pre check (invalid characters, size and format)
+	// creation of list and dup check
+	// algorithm call
+	// terminate succesfully
 	stack_a = args_to_list(argv, NULL);
 	stack_b = NULL;
 	super_algorithm_x3000(&stack_a, &stack_b);

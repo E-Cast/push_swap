@@ -22,14 +22,15 @@ void	node_addf(t_stack **first_node, t_stack *new_node);
 t_stack	*node_unlink(t_stack **first_node, t_stack *node);
 
 // parsing functions
-void	is_char_valid(char *chr, t_stack **stack);
+void	char_check(char *chr, t_stack **stack);
 void	size_check(char	*str, const char *max, t_stack **stack);
 t_stack	*args_to_list(char **argv, t_stack *stack);
 int		str_to_int(const char *str);
+void	dup_check(t_stack **stack, t_stack *node);
 
 // utility functions
 void	print_list(t_stack **stack_1, t_stack **stack_2);
-void	terminate(t_stack **stack_1, t_stack **stack_2);
+void	terminate(t_stack **stack_1, t_stack **stack_2, int status);
 
 // sorting operation functions
 void	swap(t_stack **stack);

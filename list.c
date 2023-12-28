@@ -6,7 +6,7 @@ t_stack	*node_create(int value, t_stack **stack)
 
 	node = malloc(sizeof(t_stack));
 	if (!node)
-		terminate(stack, NULL);
+		terminate(stack, NULL, EXIT_FAILURE);
 	node->value = value;
 	node->next = NULL;
 	node->prev = NULL;

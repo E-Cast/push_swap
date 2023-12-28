@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../push_swap.h"
 
 t_stack	*node_create(int value, t_stack **stack)
 {

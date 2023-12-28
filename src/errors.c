@@ -73,3 +73,16 @@ void	check_args(char **argv)
 		i++;
 	}
 }
+
+void	check_dup(t_stack **first_node, t_stack *node)
+{
+	t_stack	*current_node;
+
+	current_node = *first_node;
+	while (current_node != NULL)
+	{
+		if (current_node != node && current_node->value == node->value)
+			terminate(first_node, NULL, EXIT_FAILURE);
+		current_node = current_node->next;
+	}
+}

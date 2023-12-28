@@ -24,6 +24,7 @@ t_stack	*node_unlink(t_stack **first_node, t_stack *node);
 void	check_size(char	*str, const char *max);
 void	check_char(char *str, size_t i);
 void	check_args(char **argv);
+void	check_dup(t_stack **first_node, t_stack *node);
 void	terminate(t_stack **stack_a, t_stack **stack_b, int status);
 
 // sorting operation functions

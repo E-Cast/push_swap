@@ -11,6 +11,7 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	check_args(argv);
 	make_stack(argv, &stack_a);
+	printf("%i", node_get(&stack_a, 2)->value);
 	algorithm(&stack_a, &stack_b);	// to be implemented
 	terminate(&stack_a, &stack_b, EXIT_SUCCESS);
 }

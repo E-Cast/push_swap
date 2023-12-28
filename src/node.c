@@ -13,15 +13,20 @@ t_stack	*node_create(int value, t_stack **stack)
 	return (node);
 }
 
-t_stack	*node_last(t_stack **first_node)
+t_stack	*node_get(t_stack **first_node, int position)
 {
 	t_stack	*current_node;
 
 	if (!first_node)
 		return (NULL);
 	current_node = *first_node;
-	while (current_node->next != NULL)
+	while (position < 0 && current_node->next != NULL)
 		current_node = current_node->next;
+	while (position > 1 && current_node->next != NULL)
+	{
+		current_node = current_node->next;
+		position--;
+	}
 	return (current_node);
 }
 
@@ -35,7 +40,7 @@ void	node_addb(t_stack **first_node, t_stack *new_node)
 		*first_node = new_node;
 	else
 	{
-		current_node = node_last(first_node);
+		current_node = node_get(first_node, -1);
 		current_node->next = new_node;
 		new_node->prev = current_node;
 	}

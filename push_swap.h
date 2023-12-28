@@ -15,7 +15,7 @@ typedef struct s_stack
 # define INT_MIN "2147483648"
 // node manipulation functions
 t_stack	*node_create(int value, t_stack **stack);
-t_stack	*node_last(t_stack **first_node);
+t_stack	*node_get(t_stack **first_node, int position);
 void	node_addb(t_stack **first_node, t_stack *new_node);
 void	node_addf(t_stack **first_node, t_stack *new_node);
 t_stack	*node_unlink(t_stack **first_node, t_stack *node);
@@ -28,7 +28,11 @@ void	check_dup(t_stack **first_node, t_stack *node);
 void	terminate(t_stack **stack_a, t_stack **stack_b, int status);
 
 // list creation functions
+int		ft_atoi(char *str);
 void	make_stack(char **argv, t_stack **stack);
+
+// algoritm functions
+void	algorithm(t_stack **stack_a, t_stack **stack_b);
 
 // sorting operation functions
 void	swap(t_stack **stack);

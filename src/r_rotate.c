@@ -6,7 +6,7 @@ void	r_rotate(t_stack **stack)
 
 	if (stack == NULL || *stack == NULL)
 		return ;
-	new_node = node_unlink(stack, node_last(stack));
+	new_node = node_unlink(stack, node_get(stack, -1));
 	node_addf(stack, new_node);
 }
 

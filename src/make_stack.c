@@ -39,7 +39,7 @@ void	make_stack(char **argv, t_stack **stack)
 			if (j == 0 || argv[i][j - 1] == ' ')
 			{
 				node_addb(stack, node_create(ft_atoi(&argv[i][j]), stack));
-				check_dup(stack, node_last(stack));
+				check_dup(stack, node_get(stack, -1));
 			}
 			j++;
 		}

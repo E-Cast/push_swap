@@ -15,6 +15,7 @@ X Create the list
 - Implement a good algorithm
 	- Modify the nodes and the node_ functions as necessary
 	- Return without doing anythinng if the list is already sorted
+- Clean up code
 
 
 Valid characters:

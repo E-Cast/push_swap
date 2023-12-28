@@ -10,7 +10,7 @@ void	push(t_stack **stack_1, t_stack **stack_2)
 	node_addf(stack_2, new_node);
 }
 
-void	pa(t_stack **stack_b, t_stack **stack_a)
+void	pa(t_stack **stack_a, t_stack **stack_b)
 {
 	push(stack_b, stack_a);
 	printf("pa\n");

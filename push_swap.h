@@ -23,7 +23,7 @@ void	sa(t_stack **stack_a);
 void	sb(t_stack **stack_b);
 void	ss(t_stack **stack_a, t_stack **stack_b);
 void	push(t_stack **stack_1, t_stack **stack_2);
-void	pa(t_stack **stack_b, t_stack **stack_a);
+void	pa(t_stack **stack_a, t_stack **stack_b);
 void	pb(t_stack **stack_a, t_stack **stack_b);
 void	rotate(t_stack **stack);
 void	ra(t_stack **stack_a);
@@ -35,6 +35,6 @@ void	rrb(t_stack **stack_b);
 void	rrr(t_stack **stack_a, t_stack **stack_b);
 
 // other functions
-void	terminate(t_stack **stack_1, t_stack **stack_2, int status);
+void	terminate(t_stack **stack_a, t_stack **stack_b, int status);
 
 #endif

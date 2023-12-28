@@ -1,18 +1,18 @@
 #include "../push_swap.h"
 
-void	terminate(t_stack **stack_1, t_stack **stack_2, int status)
+void	terminate(t_stack **stack_a, t_stack **stack_b, int status)
 {
 	t_stack	*node;
 
-	while (stack_1 != NULL && *stack_1 != NULL)
+	while (stack_a != NULL && *stack_a != NULL)
 	{
-		node = node_unlink(stack_1, *stack_1);
+		node = node_unlink(stack_a, *stack_a);
 		if (node)
 			free(node);
 	}
-	while (stack_2 != NULL && *stack_2 != NULL)
+	while (stack_b != NULL && *stack_b != NULL)
 	{
-		node = node_unlink(stack_2, *stack_2);
+		node = node_unlink(stack_b, *stack_b);
 		if (node)
 			free(node);
 	}

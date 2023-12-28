@@ -1,0 +1,16 @@
+- Check if arguments are valid
+	- Check for invalid characters valid characters "-1234567890" and no more than 1 consecutive ' '
+	- Check for integer over/undeflow
+	- check for invalid format i.e. "01" or "   " or ""
+- Create the list
+	- Implement a good atoi
+	- Check for allocation errors
+	- Check for duplicates
+- Implement a basic algorithm
+- Check for leaks
+	- When terminating successfully
+	- When terminating unsuccessfully
+- Clean up code
+- Make a Makefile
+- Implement a good algorithm
+	- Modify the nodes and the node_ functions as necessary

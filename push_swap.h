@@ -34,4 +34,7 @@ void	rra(t_stack **stack_a);
 void	rrb(t_stack **stack_b);
 void	rrr(t_stack **stack_a, t_stack **stack_b);
 
+// other functions
+void	terminate(t_stack **stack_1, t_stack **stack_2, int status);
+
 #endif

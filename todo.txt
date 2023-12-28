@@ -1,7 +1,7 @@
 - Check if arguments are valid
-	- Check for invalid characters valid characters "-1234567890" and no more than 1 consecutive ' '
+	X Check for invalid characters
 	- Check for integer over/undeflow
-	- check for invalid format i.e. "01" or "   " or ""
+	X check for empty string
 - Create the list
 	- Implement a good atoi
 	- Check for allocation errors
@@ -15,3 +15,15 @@
 - Implement a good algorithm
 	- Modify the nodes and the node_ functions as necessary
 	- Return without doing anythinng if the list is already sorted
+
+
+Valid characters:
+"123456789"
+'-' is valid as long as: 
+	it is preceding one of "1234567890" and it is at the begining 
+		of an arg or it is preceeded by ' '
+'0' is valid as long as:
+	it is alone or it isn't leading
+' ' is valid so long as:
+	it is not at the begining or end of an arg
+	it is not followed by another ' '

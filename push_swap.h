@@ -10,12 +10,18 @@ typedef struct s_stack
 	struct s_stack	*prev;
 }	t_stack;
 
-// node manipulation function
+# define VALID_CHARS " -1234567890"
+
+// node manipulation functions
 t_stack	*node_create(int value, t_stack **stack);
 t_stack	*node_last(t_stack **first_node);
 void	node_addb(t_stack **first_node, t_stack *new_node);
 void	node_addf(t_stack **first_node, t_stack *new_node);
 t_stack	*node_unlink(t_stack **first_node, t_stack *node);
+
+// error handling functions
+void	check_args(char **argv);
+void	terminate(t_stack **stack_a, t_stack **stack_b, int status);
 
 // sorting operation functions
 void	swap(t_stack **stack);
@@ -33,8 +39,5 @@ void	r_rotate(t_stack **stack);
 void	rra(t_stack **stack_a);
 void	rrb(t_stack **stack_b);
 void	rrr(t_stack **stack_a, t_stack **stack_b);
-
-// other functions
-void	terminate(t_stack **stack_a, t_stack **stack_b, int status);
 
 #endif

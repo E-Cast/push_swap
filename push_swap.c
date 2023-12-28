@@ -1,16 +1,5 @@
 #include "push_swap.h"
 
-static void	check_args(char **argv)
-{
-	// to be implemented
-
-	// placeholder code
-	if (argv[0])
-		return ;
-	else
-		terminate(NULL, NULL, EXIT_FAILURE);
-}
-
 static void	make_list(char **argv, t_stack **stack_a)
 {
 	// to be implemented
@@ -43,5 +32,6 @@ int	main(int argc, char **argv)
 	check_args(argv);				// to be implemented
 	make_list(argv, stack_a);		// to be implemented
 	algorithm(stack_a, stack_b);	// to be implemented
+	printf("success!\n");			// temporary
 	terminate(stack_a, stack_b, EXIT_SUCCESS);
 }

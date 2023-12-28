@@ -1,5 +1,27 @@
 #include "../push_swap.h"
 
+void	check_size(char	*str, const char *max)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] >= '0' && str[i] <= '9')
+		i++;
+	if (i > 10)
+		terminate(NULL, NULL, EXIT_FAILURE);
+	if (i < 10)
+		return ;
+	i = 0;
+	while (i < 10)
+	{
+		if (str[i] > max[i])
+			terminate(NULL, NULL, EXIT_FAILURE);
+		if (str[i] < max[i])
+			return ;
+		i++;
+	}
+}
+
 void	check_char(char *str, size_t i)
 {
 	int	j;
@@ -41,7 +63,12 @@ void	check_args(char **argv)
 		j = 0;
 		while (argv[i][j])
 		{
-			check_char(argv[i], j++);
+			check_char(argv[i], j);
+			if ((j == 0 || argv[i][j - 1] == ' ') && argv[i][j] == '-')
+				check_size(&argv[i][j + 1], INT_MIN);
+			if ((j == 0 || argv[i][j - 1] == ' ') && argv[i][j] != '-')
+				check_size(&argv[i][j], INT_MAX);
+			j++;
 		}
 		i++;
 	}

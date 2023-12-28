@@ -11,7 +11,8 @@ typedef struct s_stack
 }	t_stack;
 
 # define VALID_CHARS " -1234567890"
-
+# define INT_MAX "2147483647"
+# define INT_MIN "2147483648"
 // node manipulation functions
 t_stack	*node_create(int value, t_stack **stack);
 t_stack	*node_last(t_stack **first_node);
@@ -20,6 +21,8 @@ void	node_addf(t_stack **first_node, t_stack *new_node);
 t_stack	*node_unlink(t_stack **first_node, t_stack *node);
 
 // error handling functions
+void	check_size(char	*str, const char *max);
+void	check_char(char *str, size_t i);
 void	check_args(char **argv);
 void	terminate(t_stack **stack_a, t_stack **stack_b, int status);
 

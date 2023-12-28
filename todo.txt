@@ -1,6 +1,6 @@
 - Check if arguments are valid
 	X Check for invalid characters
-	- Check for integer over/undeflow
+	X Check for integer over/undeflow
 	X check for empty string
 - Create the list
 	- Implement a good atoi

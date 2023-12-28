@@ -1,11 +1,11 @@
-- Check if arguments are valid
+X Check if arguments are valid
 	X Check for invalid characters
 	X Check for integer over/undeflow
 	X check for empty string
-- Create the list
-	- Implement a good atoi
-	- Check for allocation errors
-	- Check for duplicates
+X Create the list
+	X Implement a good atoi
+	X Check for allocation errors
+	X Check for duplicates
 - Implement a basic algorithm
 - Check for leaks
 	- When terminating successfully
@@ -20,7 +20,7 @@
 Valid characters:
 "123456789"
 '-' is valid as long as: 
-	it is preceding one of "1234567890" and it is at the begining 
+	it is preceding one of "123456789" and it is at the begining 
 		of an arg or it is preceeded by ' '
 '0' is valid as long as:
 	it is alone or it isn't leading

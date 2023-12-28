@@ -27,6 +27,9 @@ void	check_args(char **argv);
 void	check_dup(t_stack **first_node, t_stack *node);
 void	terminate(t_stack **stack_a, t_stack **stack_b, int status);
 
+// list creation functions
+void	make_stack(char **argv, t_stack **stack);
+
 // sorting operation functions
 void	swap(t_stack **stack);
 void	sa(t_stack **stack_a);

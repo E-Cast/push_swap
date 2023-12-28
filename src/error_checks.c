@@ -28,7 +28,7 @@ void	check_char(char *str, size_t i)
 
 	if (str[i] == '-' && i != 0 && str[i - 1] != ' ')
 		terminate(NULL, NULL, EXIT_FAILURE);
-	if (str[i] == '-' && !(str[i + 1] >= '0' && str[i + 1] <= '9'))
+	if (str[i] == '-' && !(str[i + 1] >= '1' && str[i + 1] <= '9'))
 		terminate(NULL, NULL, EXIT_FAILURE);
 	if (str[i] == '0' && (str[i + 1] >= '0' && str[i + 1] <= '9'))
 	{

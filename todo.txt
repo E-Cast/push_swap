@@ -6,7 +6,7 @@ X Create the list
 	X Implement a good atoi
 	X Check for allocation errors
 	X Check for duplicates
-- Implement a basic algorithm
+X Implement a basic algorithm
 - Check for leaks
 	- When terminating successfully
 	- When terminating unsuccessfully
@@ -14,7 +14,9 @@ X Create the list
 - Make a Makefile
 - Implement a good algorithm
 	- Modify the nodes and the node_ functions as necessary
-	- Return without doing anythinng if the list is already sorted
+	- Handle a pre sorted list
+	- Stop doing pb when stack a is only two nodes
+	- avoid over rotation
 - Clean up code
 
 

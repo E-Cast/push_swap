@@ -24,7 +24,6 @@ int	ft_atoi(char *str)
 	return (num);
 }
 
-
 void	make_stack(char **argv, t_stack **stack)
 {
 	size_t	i;

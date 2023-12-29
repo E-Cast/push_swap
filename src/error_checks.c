@@ -39,7 +39,6 @@ void	check_char(char *str, size_t i)
 	}
 	if (str[i] == ' ' && (i == 0 || str[i + 1] == ' ' || str[i + 1] == '\0'))
 		terminate(NULL, NULL, EXIT_FAILURE);
-
 	j = 0;
 	while (VALID_CHARS[j] != '\0')
 	{

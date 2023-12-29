@@ -1,6 +1,6 @@
 #include "../push_swap.h"
 
-static void	print_list(t_stack **stack_1, t_stack **stack_2)
+void	print_list(t_stack **stack_1, t_stack **stack_2)
 {
 	t_stack	*cursor_1;
 	t_stack	*cursor_2;
@@ -28,77 +28,10 @@ static void	print_list(t_stack **stack_1, t_stack **stack_2)
 	return ;
 }
 
-// static void	algorithm(t_stack **stack_a, t_stack **stack_b)
-// {
-
-// 	t_stack	*cursor;
-// 	int		smallest;
-// 	int		position;
-// 	int		i;
-// 	int		total;
-// 	int		moves;
-
-// 	printf("start\n");
-// 	// print_list(stack_a, stack_b);
-// 	moves = 0;
-// 	while (*stack_a)
-// 	{
-// 		cursor = *stack_a;
-// 		total = 0;
-// 		while (cursor)
-// 		{
-// 			cursor = cursor->next;
-// 			total++;
-// 		}
-// 		cursor = *stack_a;
-// 		smallest = cursor->value;
-// 		position = 0;
-// 		i = 0;
-// 		while (cursor)
-// 		{
-// 			if (smallest > cursor->value)
-// 			{
-// 				smallest = cursor->value;
-// 				position = i;
-// 			}
-// 			cursor = cursor->next;
-// 			i++;
-// 		}
-// 		if (total - position > position)
-// 		{
-// 			while (position > 0)
-// 			{
-// 				ra(stack_a);
-// 				moves++;
-// 				position--;
-// 			}
-// 		}
-// 		else
-// 		{
-// 			while (position < total)
-// 			{
-// 				rra(stack_a);
-// 				moves++;
-// 				position++;
-// 			}
-// 		}
-// 		pb(stack_a, stack_b);
-// 		moves++;
-// 		// print_list(stack_a, stack_b);
-// 	}
-// 	while (*stack_b)
-// 	{
-// 		pa(stack_a, stack_b);
-// 		moves++;
-// 	}
-// 	// print_list(stack_a, stack_b);
-// 	printf("MOVES:%i", moves);
-// }
-
-static int	get_length(t_stack **stack)
+int	get_length(t_stack **stack)
 {
-	t_stack *cursor;
-	int	i;
+	t_stack	*cursor;
+	int		i;
 
 	if (!stack || !*stack)
 		return (0);
@@ -112,59 +45,50 @@ static int	get_length(t_stack **stack)
 	return (i);
 }
 
-static int	get_smallest(t_stack **stack)
+int	get_average_value(t_stack **stack)
 {
-	t_stack	*cursor;
-	int		smallest;
-	int		position;
+	int		num;
 	int		i;
+	t_stack	*index;
 
-	if (!stack || !*stack)
+	if (!stack && !*stack)
 		return (0);
-	cursor = *stack;
-	smallest = cursor->value;
-	position = 0;
+	num = 0;
 	i = 0;
-	while (cursor)
+	index = *stack;
+	while (index != NULL)
 	{
-		if (smallest > cursor->value)
-		{
-			smallest = cursor->value;
-			position = i;
-		}
-		cursor = cursor->next;
+		num += index->value;
+		index = index->next;
 		i++;
 	}
-	return (position);
+	return (num / i);
 }
+
 
 void	algorithm(t_stack **stack_a, t_stack **stack_b)
 {
-	int	i;
+	t_stack	*marker;
+	int		average_value;
 
-	while ((*stack_a)->next)
+	while (*stack_a && (*stack_a)->next->next)
 	{
-		if (get_length(stack_a) / 2 > get_smallest(stack_a))
+		marker = NULL;
+		average_value = get_average_value(stack_a);
+		while (*stack_a && (*stack_a)->next->next && *stack_a != marker)
 		{
-			i = get_smallest(stack_a);
-			while (i > 0)
+			if ((*stack_a)->value < average_value)
+				pb(stack_a, stack_b);
+			else
 			{
+				if (marker == NULL)
+					marker = *stack_a;
 				ra(stack_a);
-				i--;
 			}
 		}
-		else
-		{
-			i = get_length(stack_a) - get_smallest(stack_a);
-			while (i > 0)
-			{
-				rra(stack_a);
-				i--;
-			}
-		}
-		pb(stack_a, stack_b);
+		marker = NULL;
 	}
-	while (*stack_b)
-		pa(stack_a, stack_b);
-	print_list(stack_a, stack_b);
+	if ((*stack_a)->next && (*stack_a)->next->value < (*stack_a)->value)
+		sa(stack_a);
+	// print_list(stack_a, stack_b);
 }

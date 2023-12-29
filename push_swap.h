@@ -13,6 +13,7 @@ typedef struct s_stack
 # define VALID_CHARS " -1234567890"
 # define INT_MAX "2147483647"
 # define INT_MIN "2147483648"
+
 // node manipulation functions
 t_stack	*node_create(int value, t_stack **stack);
 t_stack	*node_get(t_stack **first_node, int position);
@@ -32,6 +33,7 @@ int		ft_atoi(char *str);
 void	make_stack(char **argv, t_stack **stack);
 
 // algoritm functions
+int		get_length(t_stack **stack);
 void	algorithm(t_stack **stack_a, t_stack **stack_b);
 
 // sorting operation functions
@@ -50,5 +52,7 @@ void	r_rotate(t_stack **stack);
 void	rra(t_stack **stack_a);
 void	rrb(t_stack **stack_b);
 void	rrr(t_stack **stack_a, t_stack **stack_b);
+
+void	print_list(t_stack **stack_1, t_stack **stack_2); // testing function
 
 #endif

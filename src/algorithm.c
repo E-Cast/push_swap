@@ -143,7 +143,6 @@ void	quick_sort(t_stack **stack_a, t_stack **stack_b, int average)
 
 void	algorithm(t_stack **stack_a, t_stack **stack_b)
 {
-	quick_sort(stack_a, stack_b, get_average_value(stack_a));
 	while (*stack_a && (*stack_a)->next->next)
 	{
 		quick_sort(stack_a, stack_b, get_average_value(stack_a));

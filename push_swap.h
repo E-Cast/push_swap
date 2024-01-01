@@ -35,6 +35,8 @@ void	make_stack(char **argv, t_stack **stack);
 // algoritm functions
 int		get_length(t_stack **stack);
 void	algorithm(t_stack **stack_a, t_stack **stack_b);
+// void	quick_sort(t_stack **stack_a, t_stack **stack_b);
+void	quick_sort(t_stack **stack_a, t_stack **stack_b, int average);
 
 // sorting operation functions
 void	swap(t_stack **stack);

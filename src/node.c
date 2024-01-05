@@ -8,6 +8,7 @@ t_stack	*node_create(int value, t_stack **stack)
 	if (!node)
 		terminate(stack, NULL, EXIT_FAILURE);
 	node->value = value;
+	node->index = 0;
 	node->next = NULL;
 	node->prev = NULL;
 	return (node);

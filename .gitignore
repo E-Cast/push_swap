@@ -4,3 +4,5 @@
 .DS_Store
 *.py
 result.txt
+imgui.ini
+visualizer

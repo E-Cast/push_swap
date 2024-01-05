@@ -11,6 +11,7 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	check_args(argv);
 	make_stack(argv, &stack_a);
+	// sort_check
 	if (get_length(&stack_a) == 1)
 		return (EXIT_SUCCESS);
 	algorithm(&stack_a, &stack_b);

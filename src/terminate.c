@@ -10,6 +10,8 @@ void	terminate(t_stack **stack_a, t_stack **stack_b, int status)
 		if (node)
 			free(node);
 	}
+	if (*stack_a)
+		free(*stack_a);
 	while (stack_b != NULL && *stack_b != NULL)
 	{
 		node = node_unlink(stack_b, *stack_b);

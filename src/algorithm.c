@@ -45,52 +45,52 @@ int	get_length(t_stack **stack)
 	return (i);
 }
 
-// void	second_sort(t_stack **stack_a, t_stack **stack_b)
-// {
-// 	t_stack	*index;
-// 	int		biggest;
-// 	int		position;
-// 	int		i;
+void	second_sort(t_stack **stack_a, t_stack **stack_b)
+{
+	t_stack	*index;
+	int		biggest;
+	int		position;
+	int		i;
 
-// 	while ((*stack_b)->next)
-// 	{
-// 		index = *stack_b;
-// 		biggest = index->value;
-// 		position = 0;
-// 		i = 0;
-// 		while (index != NULL)
-// 		{
-// 			if (biggest < index->value)
-// 			{
-// 				biggest = index->value;
-// 				position = i;
-// 			}
-// 			index = index->next;
-// 			i++;
-// 		}
-// 		if (position <= get_length(stack_b) / 2)
-// 		{
-// 			while (position)
-// 			{
-// 				rb(stack_b);
-// 				position--;
-// 			}
-// 			pa(stack_a, stack_b);
-// 		}
-// 		else
-// 		{
-// 			position = get_length(stack_b) - position;
-// 			while (position)
-// 			{
-// 				rrb(stack_b);
-// 				position--;
-// 			}
-// 			pa(stack_a, stack_b);
-// 		}
-// 		// print_list(stack_a, stack_b);
-// 	}
-// 	pa(stack_a, stack_b);
-// }
+	while ((*stack_b)->next)
+	{
+		index = *stack_b;
+		biggest = index->value;
+		position = 0;
+		i = 0;
+		while (index != NULL)
+		{
+			if (biggest < index->value)
+			{
+				biggest = index->value;
+				position = i;
+			}
+			index = index->next;
+			i++;
+		}
+		if (position <= get_length(stack_b) / 2)
+		{
+			while (position)
+			{
+				rb(stack_b);
+				position--;
+			}
+			pa(stack_a, stack_b);
+		}
+		else
+		{
+			position = get_length(stack_b) - position;
+			while (position)
+			{
+				rrb(stack_b);
+				position--;
+			}
+			pa(stack_a, stack_b);
+		}
+		// print_list(stack_a, stack_b);
+	}
+	pa(stack_a, stack_b);
+}
 
 // int	get_average_value(t_stack **stack)
 // {
@@ -158,39 +158,68 @@ int	get_length(t_stack **stack)
 // 	second_sort(stack_a, stack_b);
 // }
 
-void	algorithm(t_stack **stack_a, t_stack **stack_b)
+t_stack	*get_smallest(t_stack **stack)
 {
-	int		fraction;
-	int		blk_len;
+	t_stack	*current;
+	t_stack *smallest;
+
+	if (!stack)
+		return (NULL);
+	current = *stack;
+	smallest = current;
+	while (current != NULL)
+	{
+		if (smallest->value > current->value)
+			smallest = current;
+		current = current->next;
+	}
+	return (smallest);
+}
+
+int	pre_sort(t_stack **stack_a, t_stack **stack_b, int blk_len, int ratio)
+{
 	t_stack *marker;
 
-	fraction = get_length(stack_a) / 4;
-	blk_len = 0;
-	printf("%i\n", fraction);
 	marker = NULL;
-	while (*stack_a)
+	blk_len += ratio;
+	while (*stack_a && *stack_a != marker)
 	{
-		blk_len += fraction;
-		// printf("%i\n", blk_len);
-		while (*stack_a && *stack_a != marker)
+		if ((*stack_a)->value <= blk_len)
 		{
-			if ((*stack_a)->value <= blk_len)
+			pb(stack_a, stack_b);
+			if ((*stack_b)->value <= blk_len - ratio / 2)
 			{
-				if ((*stack_a)->value <= blk_len - fraction / 2)
+				if ((*stack_a)->value > blk_len)
 				{
-					pb(stack_a, stack_b);
-					rb(stack_b);
+					if (marker == NULL)
+						marker = *stack_a;
+					rr(stack_a, stack_b);
 				}
 				else
-					pb(stack_a, stack_b);
-			}
-			else
-			{
-				if (marker == NULL)
-					marker = *stack_a;
-				ra(stack_a);
+				rb(stack_b);
 			}
 		}
-		marker = NULL;
+		else
+		{
+			if (marker == NULL)
+				marker = *stack_a;
+			ra(stack_a);
+		}
 	}
+	return (blk_len);
+}
+
+void	algorithm(t_stack **stack_a, t_stack **stack_b)
+{
+	int	blk_len;
+	int	ratio;
+
+	blk_len = 0;
+	ratio = get_length(stack_a) / 5;
+	while (*stack_a)
+	{
+		blk_len = pre_sort(stack_a, stack_b, blk_len, ratio);
+		printf("%i\n", blk_len);
+	}
+	second_sort(stack_a, stack_b);
 }

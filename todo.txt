@@ -13,7 +13,8 @@ X Implement a basic algorithm
 - Clean up code
 - Make a Makefile
 - Implement a good algorithm
-	- Modify the nodes and the node_ functions as necessary
+	- use idexes instead of value for consistency's sake
+	X partition it in smaller equal parts
 	- Handle a pre sorted list
 	- Stop doing pb when stack a is only two nodes
 	- avoid over rotation

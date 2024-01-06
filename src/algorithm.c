@@ -27,14 +27,14 @@ void	second_sort(t_stack **stack_a, t_stack **stack_b)
 	while ((*stack_b)->next)
 	{
 		index = *stack_b;
-		biggest = index->value;
+		biggest = index->index;
 		position = 0;
 		i = 0;
 		while (index != NULL)
 		{
-			if (biggest < index->value)
+			if (biggest < index->index)
 			{
-				biggest = index->value;
+				biggest = index->index;
 				position = i;
 			}
 			index = index->next;
@@ -63,36 +63,36 @@ void	second_sort(t_stack **stack_a, t_stack **stack_b)
 	pa(stack_a, stack_b);
 }
 
-int	lower_than(t_stack **stack, int value)
+int	lower_than(t_stack **stack, int index)
 {
 	t_stack	*current;
 
 	if (!stack)
-		return (1);
+		return (0);
 	current = *stack;
 	while (current != NULL)
 	{
-		if (current->value <= value)
-			return (0);
+		if (current->index <= index)
+			return (1);
 		current = current->next;
 	}
-	return (1);
+	return (0);
 }
 
-int	pre_sort(t_stack **stack_a, t_stack **stack_b, int blk_len, int ratio)
+int	pre_sort(t_stack **stack_a, t_stack **stack_b, int part_len, int ratio)
 {
 	t_stack *marker;
 
 	marker = NULL;
-	blk_len += ratio;
+	part_len += ratio;
 	while (*stack_a && *stack_a != marker)
 	{
-		if ((*stack_a)->value <= blk_len)
+		if ((*stack_a)->index <= part_len)
 		{
 			pb(stack_a, stack_b);
-			if ((*stack_b)->value <= blk_len - ratio / 2)
+			if ((*stack_b)->index <= part_len - ratio / 2)
 			{
-				if (*stack_a && (*stack_a)->next && (*stack_a)->value > blk_len)
+				if (*stack_a && (*stack_a)->next && (*stack_a)->index > part_len)
 					rr(stack_a, stack_b);
 				else
 					rb(stack_b);
@@ -100,22 +100,22 @@ int	pre_sort(t_stack **stack_a, t_stack **stack_b, int blk_len, int ratio)
 		}
 		else
 			ra(stack_a);
-		if (lower_than(stack_a, blk_len))
-				return (blk_len);
+		if (!lower_than(stack_a, part_len))
+				return (part_len);
 	}
-	return (blk_len);
+	return (part_len);
 }
 
 void	algorithm(t_stack **stack_a, t_stack **stack_b)
 {
-	int	blk_len;
+	int	part_len;
 	int	ratio;
 
-	blk_len = 0;
+	part_len = 0;
 	ratio = get_length(stack_a) / 7;
 	while (*stack_a)
 	{
-		blk_len = pre_sort(stack_a, stack_b, blk_len, ratio);
+		part_len = pre_sort(stack_a, stack_b, part_len, ratio);
 	}
 	second_sort(stack_a, stack_b);
 }

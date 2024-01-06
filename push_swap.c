@@ -28,6 +28,77 @@ void	print_list(t_stack **stack_1, t_stack **stack_2)
 	return ;
 }
 
+void	sort_check(t_stack **stack)
+{
+	t_stack	*current;
+	t_stack *last_node;
+
+	if (!stack || !*stack)
+		return ;
+	current = (*stack)->next;
+	last_node = NULL;
+	while (current)
+	{
+		if (last_node && last_node->value > current->value)
+			return ;
+		last_node = current;
+		current = current->next;
+	}
+	terminate(stack, NULL, EXIT_SUCCESS);
+}
+
+// void	print_index(t_stack **stack)
+// {
+// 	t_stack	*cursor;
+
+// 	cursor = *stack;
+// 	printf("---------\na	b\n\n");
+// 	while (cursor)
+// 	{
+// 		printf("%i	%i\n", cursor->value, cursor->index);
+// 		cursor = cursor->next;
+// 	}
+// 	printf("---------\n");
+// 	return ;
+// }
+
+int	is_indexed(t_stack **stack)
+{
+	t_stack	*current;
+
+	current = *stack;
+	while (current)
+	{
+		if (current->index == 0)
+			return (0);
+		current = current->next;
+	}
+	return (1);
+}
+
+void	index_list(t_stack **stack)
+{
+	t_stack *current;
+	t_stack *smallest;
+	int 	i;
+
+	i = 1;
+	while (!is_indexed(stack))
+	{
+		current = *stack;
+		while (current && current->index != 0)
+			current = current->next;
+		smallest = current;
+		while (current)
+		{
+			if (current->index == 0 && current->value < smallest->value)
+				smallest = current;
+			current = current->next;
+		}
+		smallest->index = i++;
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
@@ -39,9 +110,16 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	check_args(argv);
 	make_stack(argv, &stack_a);
-	// sort_check
 	if (get_length(&stack_a) == 1)
-		return (EXIT_SUCCESS);
+		terminate(&stack_a, NULL, EXIT_SUCCESS);
+	sort_check(&stack_a);
+	// if (get_length(&stack_a) == 3)
+	// {
+	// 	three_sort(&stack_a);
+	// 	terminate(&stack_a, NULL, EXIT_SUCCESS);
+	// }
+	index_list(&stack_a);
+	// print_index(&stack_a);
 	algorithm(&stack_a, &stack_b);
 	terminate(&stack_a, &stack_b, EXIT_SUCCESS);
 }

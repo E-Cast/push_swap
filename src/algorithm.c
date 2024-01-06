@@ -1,33 +1,5 @@
 #include "../push_swap.h"
 
-// void	print_list(t_stack **stack_1, t_stack **stack_2)
-// {
-// 	t_stack	*cursor_1;
-// 	t_stack	*cursor_2;
-
-// 	cursor_1 = *stack_1;
-// 	cursor_2 = *stack_2;
-// 	printf("---------\na	b\n\n");
-// 	while (cursor_1 && cursor_2)
-// 	{
-// 		printf("%i	%i\n", cursor_1->value, cursor_2->value);
-// 		cursor_1 = cursor_1->next;
-// 		cursor_2 = cursor_2->next;
-// 	}
-// 	while (cursor_1)
-// 	{
-// 		printf("%i\n", cursor_1->value);
-// 		cursor_1 = cursor_1->next;
-// 	}
-// 	while (cursor_2)
-// 	{
-// 		printf("	%i\n", cursor_2->value);
-// 		cursor_2 = cursor_2->next;
-// 	}
-// 	printf("---------\n");
-// 	return ;
-// }
-
 int	get_length(t_stack **stack)
 {
 	t_stack	*cursor;
@@ -87,93 +59,24 @@ void	second_sort(t_stack **stack_a, t_stack **stack_b)
 			}
 			pa(stack_a, stack_b);
 		}
-		// print_list(stack_a, stack_b);
 	}
 	pa(stack_a, stack_b);
 }
 
-// int	get_average_value(t_stack **stack)
-// {
-// 	int		num;
-// 	int		i;
-// 	t_stack	*index;
-
-// 	if (!stack && !*stack)
-// 		return (0);
-// 	num = 0;
-// 	i = 0;
-// 	index = *stack;
-// 	while (index != NULL)
-// 	{
-// 		num += index->value;
-// 		index = index->next;
-// 		i++;
-// 	}
-// 	return (num / i);
-// }
-
-// void	quick_sort(t_stack **stack_a, t_stack **stack_b, int average)
-// {
-// 	t_stack	*marker;
-// 	int		ratio;
-
-// 	marker = NULL;
-// 	ratio = 0;
-// 	while (*stack_a && (*stack_a)->next->next && *stack_a != marker)
-// 	{
-// 		if ((*stack_a)->value < average)
-// 		{
-// 			pb(stack_a, stack_b);
-// 			ratio++;
-// 		}
-// 		else
-// 		{
-// 			if (marker == NULL)
-// 				marker = *stack_a;
-// 			if (ratio >= 2)
-// 			{
-// 				rr(stack_a, stack_b);
-// 				ratio -= 2;
-// 			}
-// 			else
-// 				ra(stack_a);
-// 		}
-// 	}
-// }
-
-// void	algorithm(t_stack **stack_a, t_stack **stack_b)
-// {
-// 	if (get_length(stack_a) == 2)
-// 	{
-// 		if ((*stack_a)->value > (*stack_a)->next->value)
-// 			sa(stack_a);
-// 		return ;
-// 	}
-// 	while (*stack_a && (*stack_a)->next->next)
-// 	{
-// 		quick_sort(stack_a, stack_b, get_average_value(stack_a));
-// 	}
-// 	if ((*stack_a)->next && (*stack_a)->next->value < (*stack_a)->value)
-// 		sa(stack_a);
-// 	second_sort(stack_a, stack_b);
-// }
-
-t_stack	*get_smallest(t_stack **stack)
+int	lower_than(t_stack **stack, int value)
 {
 	t_stack	*current;
-	t_stack *smallest;
 
 	if (!stack)
-		return (NULL);
+		return (1);
 	current = *stack;
-	smallest = current;
 	while (current != NULL)
 	{
-		if (smallest->value > current->value)
-			smallest = current;
+		if (current->value <= value)
+			return (0);
 		current = current->next;
 	}
-	return (smallest);
+	return (1);
 }
 
 int	pre_sort(t_stack **stack_a, t_stack **stack_b, int blk_len, int ratio)
@@ -189,22 +92,16 @@ int	pre_sort(t_stack **stack_a, t_stack **stack_b, int blk_len, int ratio)
 			pb(stack_a, stack_b);
 			if ((*stack_b)->value <= blk_len - ratio / 2)
 			{
-				if ((*stack_a)->value > blk_len)
-				{
-					if (marker == NULL)
-						marker = *stack_a;
+				if (*stack_a && (*stack_a)->next && (*stack_a)->value > blk_len)
 					rr(stack_a, stack_b);
-				}
 				else
-				rb(stack_b);
+					rb(stack_b);
 			}
 		}
 		else
-		{
-			if (marker == NULL)
-				marker = *stack_a;
 			ra(stack_a);
-		}
+		if (lower_than(stack_a, blk_len))
+				return (blk_len);
 	}
 	return (blk_len);
 }
@@ -215,11 +112,10 @@ void	algorithm(t_stack **stack_a, t_stack **stack_b)
 	int	ratio;
 
 	blk_len = 0;
-	ratio = get_length(stack_a) / 5;
+	ratio = get_length(stack_a) / 7;
 	while (*stack_a)
 	{
 		blk_len = pre_sort(stack_a, stack_b, blk_len, ratio);
-		printf("%i\n", blk_len);
 	}
 	second_sort(stack_a, stack_b);
 }

@@ -63,7 +63,7 @@ void	second_sort(t_stack **stack_a, t_stack **stack_b)
 	pa(stack_a, stack_b);
 }
 
-int	lower_than(t_stack **stack, int index)
+int	find_lower_than(t_stack **stack, int index)
 {
 	t_stack	*current;
 
@@ -81,27 +81,23 @@ int	lower_than(t_stack **stack, int index)
 
 int	pre_sort(t_stack **stack_a, t_stack **stack_b, int part_len, int ratio)
 {
-	t_stack *marker;
-
-	marker = NULL;
 	part_len += ratio;
-	while (*stack_a && *stack_a != marker)
+	while (*stack_a)
 	{
 		if ((*stack_a)->index <= part_len)
 		{
 			pb(stack_a, stack_b);
-			if ((*stack_b)->index <= part_len - ratio / 2)
-			{
-				if (*stack_a && (*stack_a)->next && (*stack_a)->index > part_len)
-					rr(stack_a, stack_b);
-				else
-					rb(stack_b);
-			}
+			if ((*stack_b)->index > part_len - ratio / 2)
+				continue;
+			if (*stack_a && (*stack_a)->next && (*stack_a)->index > part_len)
+				rr(stack_a, stack_b);
+			else
+				rb(stack_b);
 		}
 		else
 			ra(stack_a);
-		if (!lower_than(stack_a, part_len))
-				return (part_len);
+		if (!find_lower_than(stack_a, part_len))
+			return (part_len);
 	}
 	return (part_len);
 }

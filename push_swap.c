@@ -47,21 +47,6 @@ void	sort_check(t_stack **stack)
 	terminate(stack, NULL, EXIT_SUCCESS);
 }
 
-// void	print_index(t_stack **stack)
-// {
-// 	t_stack	*cursor;
-
-// 	cursor = *stack;
-// 	printf("---------\na	b\n\n");
-// 	while (cursor)
-// 	{
-// 		printf("%i	%i\n", cursor->value, cursor->index);
-// 		cursor = cursor->next;
-// 	}
-// 	printf("---------\n");
-// 	return ;
-// }
-
 int	is_indexed(t_stack **stack)
 {
 	t_stack	*current;

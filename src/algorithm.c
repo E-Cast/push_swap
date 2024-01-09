@@ -88,9 +88,34 @@ int	compare_distance(int b_dist, int s_dist)
 		b_dist *= -1;
 	if (s_dist < 0)
 		s_dist *= -1;
-	if (s_dist < b_dist)
+	if (s_dist < b_dist / 1.5)
 		return (0);
 	return (1);
+}
+
+int	move_to_node(int distance, t_stack **stack)
+{
+	if (distance > 0)
+	{
+		rb(stack);
+		return (-1);
+	}
+	if (distance < 0)
+	{
+		rrb(stack);
+		return (1);
+	}
+	return (0);
+}
+
+int	get_distance(t_stack **stack, t_stack *node)
+{
+	int	distance;
+
+	distance = get_position(stack, node) - 1;
+	if (distance >= get_length(stack) / 2)
+		distance = distance - (get_length(stack));
+	return (distance);
 }
 void	final_sort(t_stack **stack_a, t_stack **stack_b, int todo, int blk_len)
 {
@@ -100,44 +125,18 @@ void	final_sort(t_stack **stack_a, t_stack **stack_b, int todo, int blk_len)
 	todo -= blk_len;
 	while (find_bigger_than(stack_b, todo))
 	{
-		b_dist = get_position(stack_b, find_biggest(stack_b)) - 1;
-		s_dist = get_position(stack_b, find_smallest(stack_b, todo)) - 1;
-		if (b_dist >= get_length(stack_b) / 2)
-			b_dist = b_dist - (get_length(stack_b));
-		if (s_dist >= get_length(stack_b) / 2)
-			s_dist = s_dist - (get_length(stack_b));
+		b_dist = get_distance(stack_b, find_biggest(stack_b));
+		s_dist = get_distance(stack_b, find_smallest(stack_b, todo));
 		if (compare_distance(b_dist, s_dist))
 		{
 			while (b_dist != 0)
-			{
-				if (b_dist > 0)
-				{
-					rb(stack_b);
-					b_dist--;
-				}
-				if (b_dist < 0)
-				{
-					rrb(stack_b);
-					b_dist++;
-				}
-			}
+				b_dist += move_to_node(b_dist, stack_b);
 			pa(stack_a, stack_b);
 		}
 		else
 		{
 			while (s_dist != 0)
-			{
-				if (s_dist > 0)
-				{
-					rb(stack_b);
-					s_dist--;
-				}
-				if (s_dist < 0)
-				{
-					rrb(stack_b);
-					s_dist++;
-				}
-			}
+				s_dist += move_to_node(s_dist, stack_b);
 			pa(stack_a, stack_b);
 			ra(stack_a);
 		}
@@ -151,7 +150,9 @@ void	algorithm(t_stack **stack_a, t_stack **stack_b)
 	int	blk_len;
 
 	blk_len = get_length(stack_a) / 7;
+	if (get_length(stack_a) <= 200)
+		blk_len = get_length(stack_a) / 4;
 	pre_sort(stack_a, stack_b, 0, blk_len);
 	while (*stack_b)
-		final_sort(stack_a, stack_b, get_length(stack_b), blk_len);
+		final_sort(stack_a, stack_b, get_length(stack_b), blk_len / 2);
 }

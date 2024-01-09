@@ -17,52 +17,6 @@ int	get_length(t_stack **stack)
 	return (i);
 }
 
-// void	second_sort(t_stack **stack_a, t_stack **stack_b)
-// {
-// 	t_stack	*index;
-// 	int		biggest;
-// 	int		position;
-// 	int		i;
-
-// 	while ((*stack_b)->next)
-// 	{
-// 		index = *stack_b;
-// 		biggest = index->index;
-// 		position = 0;
-// 		i = 0;
-// 		while (index != NULL)
-// 		{
-// 			if (biggest < index->index)
-// 			{
-// 				biggest = index->index;
-// 				position = i;
-// 			}
-// 			index = index->next;
-// 			i++;
-// 		}
-// 		if (position <= get_length(stack_b) / 2)
-// 		{
-// 			while (position)
-// 			{
-// 				rb(stack_b);
-// 				position--;
-// 			}
-// 			pa(stack_a, stack_b);
-// 		}
-// 		else
-// 		{
-// 			position = get_length(stack_b) - position;
-// 			while (position)
-// 			{
-// 				rrb(stack_b);
-// 				position--;
-// 			}
-// 			pa(stack_a, stack_b);
-// 		}
-// 	}
-// 	pa(stack_a, stack_b);
-// }
-
 int	find_bigger_than(t_stack **stack, int index)
 {
 	t_stack	*current;
@@ -77,6 +31,21 @@ int	find_bigger_than(t_stack **stack, int index)
 		current = current->next;
 	}
 	return (0);
+}
+
+int	get_position(t_stack **stack, t_stack *node)
+{
+	t_stack	*current;
+	int		position;
+
+	current = *stack;
+	position = 1;
+	while (current && current != node)
+	{
+		current = current->next;
+		position++;
+	}
+	return (position);
 }
 
 t_stack	*find_biggest(t_stack **stack)
@@ -95,22 +64,7 @@ t_stack	*find_biggest(t_stack **stack)
 	return (biggest);
 }
 
-int	get_position(t_stack **stack, t_stack *node)
-{
-	t_stack	*current;
-	int		position;
-
-	current = *stack;
-	position = 1;
-	while (current && current != node)
-	{
-		current = current->next;
-		position++;
-	}
-	return (position);
-}
-
-t_stack	*get_smallest(t_stack **stack_b, int min)
+t_stack	*find_smallest(t_stack **stack_b, int min)
 {
 	t_stack	*current;
 	t_stack	*smallest;
@@ -128,40 +82,65 @@ t_stack	*get_smallest(t_stack **stack_b, int min)
 	return (smallest);
 }
 
+int	compare_distance(int b_dist, int s_dist)
+{
+	if (b_dist < 0)
+		b_dist *= -1;
+	if (s_dist < 0)
+		s_dist *= -1;
+	if (s_dist < b_dist)
+		return (0);
+	return (1);
+}
 void	final_sort(t_stack **stack_a, t_stack **stack_b, int todo, int blk_len)
 {
-	t_stack	*biggest;
-	int		distance;
+	int		b_dist;
+	int		s_dist;
 
 	todo -= blk_len;
 	while (find_bigger_than(stack_b, todo))
 	{
-		biggest = find_biggest(stack_b);
-		distance = get_position(stack_b, biggest);
-		if (distance >= get_length(stack_b) / 2)
-			distance = distance - (get_length(stack_b) + 1);
-		while (*stack_b && *stack_b != biggest)
+		b_dist = get_position(stack_b, find_biggest(stack_b)) - 1;
+		s_dist = get_position(stack_b, find_smallest(stack_b, todo)) - 1;
+		if (b_dist >= get_length(stack_b) / 2)
+			b_dist = b_dist - (get_length(stack_b));
+		if (s_dist >= get_length(stack_b) / 2)
+			s_dist = s_dist - (get_length(stack_b));
+		if (compare_distance(b_dist, s_dist))
 		{
-			// printf("len:%i\ndist:%i\nfirst:%i\nbiggest:%i\n", get_length(stack_b), distance, (*stack_b)->index, biggest->index);
-			if (*stack_b == get_smallest(stack_b, todo) && *stack_b != biggest)
+			while (b_dist != 0)
 			{
-				pa(stack_a, stack_b);
-				ra(stack_a);
-				if (distance > 0)
-					distance -= 2;
+				if (b_dist > 0)
+				{
+					rb(stack_b);
+					b_dist--;
+				}
+				if (b_dist < 0)
+				{
+					rrb(stack_b);
+					b_dist++;
+				}
 			}
-			if (distance > 0)
-			{
-				rb(stack_b);
-				distance--;
-			}
-			else if (distance < 0)
-			{
-				rrb(stack_b);
-				distance++;
-			}
+			pa(stack_a, stack_b);
 		}
-		pa(stack_a, stack_b);
+		else
+		{
+			while (s_dist != 0)
+			{
+				if (s_dist > 0)
+				{
+					rb(stack_b);
+					s_dist--;
+				}
+				if (s_dist < 0)
+				{
+					rrb(stack_b);
+					s_dist++;
+				}
+			}
+			pa(stack_a, stack_b);
+			ra(stack_a);
+		}
 	}
 	while (node_get(stack_a, -1) != find_biggest(stack_a))
 		rra(stack_a);

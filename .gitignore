@@ -1,0 +1,12 @@
+*.out
+*.dSYM
+.cache
+*.o
+.vscode
+.DS_Store
+*.py
+imgui.ini
+visualizer
+result.txt
+push_swap_visualizer
+push_swap

@@ -6,7 +6,7 @@
 /*   By: ecastong <ecastong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 12:20:29 by ecastong          #+#    #+#             */
-/*   Updated: 2024/01/26 12:20:35 by ecastong         ###   ########.fr       */
+/*   Updated: 2024/01/26 13:09:38 by ecastong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,20 @@ void	sort_check(t_stack **stack)
 		current = current->next;
 	}
 	terminate(stack, NULL, EXIT_SUCCESS);
+}
+
+/*Find the position of the node in the stack.*/
+int	get_position(t_stack **stack, t_stack *node)
+{
+	t_stack	*current;
+	int		position;
+
+	current = *stack;
+	position = 1;
+	while (current && current != node)
+	{
+		current = current->next;
+		position++;
+	}
+	return (position);
 }

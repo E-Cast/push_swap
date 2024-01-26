@@ -62,11 +62,14 @@ void	index_stack(t_stack **stack);
 
 int		get_length(t_stack **stack);
 void	sort_check(t_stack **stack);
+int		get_position(t_stack **stack, t_stack *node);
 
 // Sorting algorithms.
 
 void	sort_three(t_stack **stack);
 void	pre_sort(t_stack **stack_a, t_stack **stack_b, int total, int blk_len);
 void	final_sort(t_stack **stack_a, t_stack **stack_b, int todo, int blk_len);
+
+int		find_cost(t_stack **stack_a, t_stack **stack_b, t_stack *node);
 
 #endif

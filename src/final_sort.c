@@ -16,21 +16,6 @@
 // 	return (0);
 // }
 
-// int	get_position(t_stack **stack, t_stack *node)
-// {
-// 	t_stack	*current;
-// 	int		position;
-
-// 	current = *stack;
-// 	position = 1;
-// 	while (current && current != node)
-// 	{
-// 		current = current->next;
-// 		position++;
-// 	}
-// 	return (position);
-// }
-
 // static t_stack	*find_biggest(t_stack **stack)
 // {
 // 	t_stack	*current;

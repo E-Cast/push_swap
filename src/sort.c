@@ -1,20 +1,39 @@
 #include "../push_swap.h"
 
-int	find_cost(t_stack **stack, t_stack *node)
+static int	get_sorted_position(t_stack **stack, t_stack *node)
 {
+	t_stack	*next_node;
+	int		position;
+
+	next_node = *stack;
+	position = 1;
+	while (next_node != NULL)
+	{
+		if (node->value > next_node->value)
+			return (position);
+		next_node = next_node->next;
+		position++;
+	}
+	return (position);
+}
+
+int	find_cost(t_stack **stack_a, t_stack **stack_b, t_stack *node)
+{
+	int	position;
+	int	sorted_pos;
 	int	moves;
 
-	moves = 1; // 1 min for the push
-	// get number of moves to get it into push position
-	// get desired position in B
-	// get the fastest path to it
+	position = get_position(stack_a, node);
+	moves = 1;
+	if (position <= get_length(stack_a) / 2)
+		moves += position - 1;
+	else if (get_length(stack_a) > 1)
+		moves += (get_length(stack_a) + 1) - position;
+	sorted_pos = get_sorted_position(stack_b, node);
+	if (sorted_pos <= get_length(stack_b) / 2)
+		moves += sorted_pos - 1;
+	else
+		moves += (get_length(stack_b) + 1) - sorted_pos;
 	return (moves);
 }
 
-void	sort(t_stack **stack_a, t_stack **stack_b)
-{
-	while (get_length(stack_a) > 3)
-	{
-		find_cost(stack_a, current_node);
-	}
-}

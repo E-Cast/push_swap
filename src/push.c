@@ -6,7 +6,7 @@
 /*   By: ecastong <ecastong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 12:21:06 by ecastong          #+#    #+#             */
-/*   Updated: 2024/01/26 12:21:07 by ecastong         ###   ########.fr       */
+/*   Updated: 2024/01/26 13:00:42 by ecastong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	pa(t_stack **stack_a, t_stack **stack_b)
 }
 
 /*Take the first element at the top of a and put it at the top of b.
-	Do nothing if a is empty "pb\n" to stdout.*/
+	Do nothing if a is empty. Print "pb\n" to stdout.*/
 void	pb(t_stack **stack_a, t_stack **stack_b)
 {
 	push(stack_a, stack_b);

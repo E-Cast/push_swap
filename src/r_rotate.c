@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   r_rotate.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ecastong <ecastong@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/26 12:21:03 by ecastong          #+#    #+#             */
-/*   Updated: 2024/01/26 12:21:04 by ecastong         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../push_swap.h"
 
 /*Shift down all elements of stack by 1. The last 
@@ -26,24 +14,33 @@ static void	r_rotate(t_stack **stack)
 
 /*Shift down all elements of stack a by 1. The last 
 	element becomes the first one. Print "rra\n" to stdout.*/
-void	rra(t_stack **stack_a)
+void	rra(t_stack **stack_a, int iterations)
 {
-	r_rotate(stack_a);
-	printf("rra\n");
+	while (iterations > 0)
+	{
+		r_rotate(stack_a);
+		printf("rra\n");
+	}
 }
 
 /*Shift down all elements of stack b by 1. The last 
 	element becomes the first one. Print "rrb\n" to stdout.*/
-void	rrb(t_stack **stack_b)
+void	rrb(t_stack **stack_b, int iterations)
 {
-	r_rotate(stack_b);
-	printf("rrb\n");
+	while (iterations > 0)
+	{
+		r_rotate(stack_b);
+		printf("rrb\n");
+	}
 }
 
 /*Execute rra and rrb at the same time. Print "rrr\n" to stdout.*/
-void	rrr(t_stack **stack_a, t_stack **stack_b)
+void	rrr(t_stack **stack_a, t_stack **stack_b, int iterations)
 {
-	r_rotate(stack_a);
-	r_rotate(stack_b);
-	printf("rrr\n");
+	while (iterations > 0)
+	{
+		r_rotate(stack_a);
+		r_rotate(stack_b);
+		printf("rrr\n");
+	}
 }

@@ -21,7 +21,6 @@ typedef struct path
 	int		rrb;
 	int		rr;
 	int		rrr;
-	int		path;
 	int		moves;
 }	t_path;
 
@@ -52,12 +51,12 @@ void	sb(t_stack **stack_b);
 void	ss(t_stack **stack_a, t_stack **stack_b);
 void	pa(t_stack **stack_a, t_stack **stack_b);
 void	pb(t_stack **stack_a, t_stack **stack_b);
-void	ra(t_stack **stack_a);
-void	rb(t_stack **stack_b);
-void	rr(t_stack **stack_a, t_stack **stack_b);
-void	rra(t_stack **stack_a);
-void	rrb(t_stack **stack_b);
-void	rrr(t_stack **stack_a, t_stack **stack_b);
+void	ra(t_stack **stack_a, int iterations);
+void	rb(t_stack **stack_b, int iterations);
+void	rr(t_stack **stack_a, t_stack **stack_b, int iterations);
+void	rra(t_stack **stack_a, int iterations);
+void	rrb(t_stack **stack_b, int iterations);
+void	rrr(t_stack **stack_a, t_stack **stack_b, int iterations);
 
 // Error handling.
 
@@ -82,6 +81,7 @@ void	sort_three(t_stack **stack);
 void	pre_sort(t_stack **stack_a, t_stack **stack_b, int total, int blk_len);
 void	final_sort(t_stack **stack_a, t_stack **stack_b, int todo, int blk_len);
 
-void	sort(t_stack **stack_a, t_stack **stack_b);
+t_path	get_path(t_stack **stack_a, t_stack **stack_b, t_stack *node);
+void	execute_path(t_stack **stack_a, t_stack **stack_b, t_path path);
 
 #endif

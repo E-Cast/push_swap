@@ -70,6 +70,6 @@ void	sort_three(t_stack **stack);
 void	pre_sort(t_stack **stack_a, t_stack **stack_b, int total, int blk_len);
 void	final_sort(t_stack **stack_a, t_stack **stack_b, int todo, int blk_len);
 
-int		find_cost(t_stack **stack_a, t_stack **stack_b, t_stack *node);
+int		get_cheapest(t_stack **stack_a, t_stack **stack_b);
 
 #endif

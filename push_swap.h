@@ -13,6 +13,18 @@ typedef struct s_stack
 	struct s_stack	*prev;
 }	t_stack;
 
+typedef struct path
+{
+	int		ra;
+	int		rra;
+	int		rb;
+	int		rrb;
+	int		rr;
+	int		rrr;
+	int		path;
+	int		moves;
+}	t_path;
+
 # define VALID_CHARS " -1234567890"
 # define INT_MAX "2147483647"
 # define INT_MIN "2147483648"
@@ -70,6 +82,6 @@ void	sort_three(t_stack **stack);
 void	pre_sort(t_stack **stack_a, t_stack **stack_b, int total, int blk_len);
 void	final_sort(t_stack **stack_a, t_stack **stack_b, int todo, int blk_len);
 
-int		get_cheapest(t_stack **stack_a, t_stack **stack_b);
+void	sort(t_stack **stack_a, t_stack **stack_b);
 
 #endif

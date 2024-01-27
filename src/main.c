@@ -25,7 +25,7 @@ int	main(int argc, char **argv)
 	stack_a = NULL;
 	stack_b = NULL;
 	make_stack(argv, &stack_a);
-	// sort_check(&stack_a);
+	sort_check(&stack_a);
 	index_stack(&stack_a);
 	// pb(&stack_a, &stack_b);
 	// pb(&stack_a, &stack_b);
@@ -33,7 +33,8 @@ int	main(int argc, char **argv)
 	// pb(&stack_a, &stack_b);
 	// print_list(&stack_a);
 	// print_list(&stack_b);
-	// printf("%i\n", get_cheapest(&stack_a, &stack_b));
+	// printf("%i\n", node_get(&stack_a, 1)->value);
+	sort(&stack_a, &stack_b);
 	sort_check(&stack_a);
 	terminate(&stack_a, NULL, EXIT_FAILURE);
 }

@@ -37,7 +37,7 @@ static int	get_cost(t_stack **stack_a, t_stack **stack_b, t_stack *node)
 	return (moves);
 }
 
-int	get_cheapest(t_stack **stack_a, t_stack **stack_b)
+static int	get_cheapest(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*current_node;
 	int		index;
@@ -60,8 +60,54 @@ int	get_cheapest(t_stack **stack_a, t_stack **stack_b)
 	}
 	return (position);
 }
-// to do next:
-// find cheapest (find cost on an entire stack)
-// execute cheapest
-// run execute cheapest on stack while stack > 3
-// sort three on stack
+
+void	sort(t_stack **stack_a, t_stack **stack_b)
+{
+	int	position;
+	int	sorted_pos;
+
+	pb(stack_a, stack_b);
+	while (*stack_a != NULL)
+	{
+		position = get_cheapest(stack_a, stack_b);
+		printf("%i\n", node_get(stack_a, position)->index);
+		sorted_pos = get_sorted_position(stack_b, node_get(stack_a, position));
+		if (position <= get_length(stack_a) / 2)
+		{
+			while (position > 1)
+			{
+				ra(stack_a);
+				position--;
+			}
+		}
+		else
+		{
+			position = get_length(stack_a) - position;
+			while (position > 0)
+			{
+				rra(stack_a);
+				position--;
+			}
+		}
+		printf("%i\n", sorted_pos);
+		if (sorted_pos <= get_length(stack_b) / 2)
+		{
+			while (sorted_pos > 1)
+			{
+				rb(stack_b);
+				sorted_pos--;
+			}
+		}
+		else
+		{
+			while (sorted_pos > 0)
+			{
+				rrb(stack_b);
+				sorted_pos--;
+			}
+		}
+		pb(stack_a, stack_b);
+	}
+	while (*stack_b)
+		pa(stack_a, stack_b);
+}

@@ -27,10 +27,6 @@ int	main(int argc, char **argv)
 	make_stack(argv, &stack_a);
 	sort_check(&stack_a);
 	index_stack(&stack_a);
-	// pb(&stack_a, &stack_b);
-	// pb(&stack_a, &stack_b);
-	// pb(&stack_a, &stack_b);
-	// pb(&stack_a, &stack_b);
 	// print_list(&stack_a);
 	// print_list(&stack_b);
 	// printf("%i\n", node_get(&stack_a, 1)->value);

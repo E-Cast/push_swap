@@ -80,17 +80,21 @@ static t_path	get_cheapest(t_stack **stack_a, t_stack **stack_b)
 void	sort(t_stack **stack_a, t_stack **stack_b)
 {
 	t_path	path;
+	int		tmp;
 
-	pb(stack_a, stack_b);
-	pb(stack_a, stack_b);
+	pb(stack_a, stack_b, 2);
 	if ((*stack_b)->index < (*stack_b)->next->index)
-		sb(stack_b);
-	if ((*stack_b)->index < (*stack_b)->next->index)
-		sb(stack_b);
+		rb(stack_b, 1);
 	while (*stack_a != NULL)
 	{
 		path = get_cheapest(stack_a, stack_b);
 		execute_path(stack_a, stack_b, path);
-		pb(stack_a, stack_b);
+		pb(stack_a, stack_b, 1);
 	}
+	tmp = get_position(stack_b, find_biggest(stack_b));
+	if (tmp < get_length(stack_b) / 2)
+		rb(stack_b, tmp - 1);
+	else
+		rrb(stack_b, (get_length(stack_b) + 1) - tmp);
+	pa(stack_a, stack_b, get_length(stack_b));
 }

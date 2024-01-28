@@ -6,7 +6,7 @@
 /*   By: ecastong <ecastong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 12:21:06 by ecastong          #+#    #+#             */
-/*   Updated: 2024/01/26 13:00:42 by ecastong         ###   ########.fr       */
+/*   Updated: 2024/01/28 14:40:32 by ecastong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,24 @@ static void	push(t_stack **stack_1, t_stack **stack_2)
 
 /*Take the first element at the top of b and put it at the top of a.
 	Do nothing if b is empty. Print "pa\n" to stdout.*/
-void	pa(t_stack **stack_a, t_stack **stack_b)
+void	pa(t_stack **stack_a, t_stack **stack_b, int iterations)
 {
-	push(stack_b, stack_a);
-	printf("pa\n");
+	while (iterations)
+	{
+		push(stack_b, stack_a);
+		printf("pa\n");
+		iterations--;
+	}
 }
 
 /*Take the first element at the top of a and put it at the top of b.
 	Do nothing if a is empty. Print "pb\n" to stdout.*/
-void	pb(t_stack **stack_a, t_stack **stack_b)
+void	pb(t_stack **stack_a, t_stack **stack_b, int iterations)
 {
-	push(stack_a, stack_b);
-	printf("pb\n");
+	while (iterations)
+	{
+		push(stack_a, stack_b);
+		printf("pb\n");
+		iterations--;
+	}
 }

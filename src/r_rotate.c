@@ -20,6 +20,7 @@ void	rra(t_stack **stack_a, int iterations)
 	{
 		r_rotate(stack_a);
 		printf("rra\n");
+		iterations--;
 	}
 }
 
@@ -31,6 +32,7 @@ void	rrb(t_stack **stack_b, int iterations)
 	{
 		r_rotate(stack_b);
 		printf("rrb\n");
+		iterations--;
 	}
 }
 
@@ -42,5 +44,6 @@ void	rrr(t_stack **stack_a, t_stack **stack_b, int iterations)
 		r_rotate(stack_a);
 		r_rotate(stack_b);
 		printf("rrr\n");
+		iterations--;
 	}
 }

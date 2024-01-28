@@ -1,22 +1,44 @@
 #include "../push_swap.h"
 
-int	get_sorted_position(t_stack **stack, t_stack *node)
+int	get_sorted_position(t_stack **stack, int minimum)
 {
-	t_stack	*index;
-	int		position;
+	t_stack	*current;
+	t_stack	*smallest;
 
-	index = *stack;
-	position = 1;
-	while (index != NULL)
+	if (!stack)
+		return (0);
+	current = *stack;
+	smallest = NULL;
+	while (current != NULL)
 	{
-		if (node->index > index->index)
-			return (position);
-		index = index->next;
-		position++;
+		if (smallest == NULL && current->index > minimum)
+			smallest = current;
+		else if (current->index > minimum && current->index < smallest->index)
+			smallest = current;
+		current = current->next;
 	}
-	return (position);
+	return (get_position(stack, smallest) + 1);
 }
 
+// int	get_sorted_position(t_stack **stack, t_stack *node)
+// {
+// 	t_stack	*prev;
+// 	t_stack	*next;
+// 	int		position;
+
+// 	prev = node_get(stack, -1);
+// 	next = *stack;
+// 	position = 1;
+// 	while (next != NULL)
+// 	{
+// 		if (prev->index > node->index && next->index < node->index)
+// 			break ;
+// 		prev = next;
+// 		next = next->next;
+// 		position++;
+// 	}
+// 	return (position);
+// }
 static t_path	get_cheapest(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*current_node;
@@ -41,6 +63,9 @@ void	sort(t_stack **stack_a, t_stack **stack_b)
 	t_path	path;
 
 	pb(stack_a, stack_b);
+	pb(stack_a, stack_b);
+	if ((*stack_b)->index < (*stack_b)->next->index)
+		sb(stack_b);
 	while (*stack_a != NULL)
 	{
 		path = get_cheapest(stack_a, stack_b);

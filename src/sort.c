@@ -1,5 +1,21 @@
 #include "../push_swap.h"
 
+static t_stack	*find_biggest(t_stack **stack)
+{
+	t_stack	*current;
+	t_stack	*biggest;
+
+	current = *stack;
+	biggest = current;
+	while (current)
+	{
+		if (current->index > biggest->index)
+			biggest = current;
+		current = current->next;
+	}
+	return (biggest);
+}
+
 int	get_sorted_position(t_stack **stack, int minimum)
 {
 	t_stack	*current;
@@ -9,6 +25,8 @@ int	get_sorted_position(t_stack **stack, int minimum)
 		return (0);
 	current = *stack;
 	smallest = NULL;
+	if (find_biggest(stack)->index < minimum)
+		return (get_position(stack, find_biggest(stack)));
 	while (current != NULL)
 	{
 		if (smallest == NULL && current->index > minimum)
@@ -18,6 +36,7 @@ int	get_sorted_position(t_stack **stack, int minimum)
 		current = current->next;
 	}
 	return (get_position(stack, smallest) + 1);
+	// what if it's the biggest?
 }
 
 // int	get_sorted_position(t_stack **stack, t_stack *node)
@@ -64,6 +83,8 @@ void	sort(t_stack **stack_a, t_stack **stack_b)
 
 	pb(stack_a, stack_b);
 	pb(stack_a, stack_b);
+	if ((*stack_b)->index < (*stack_b)->next->index)
+		sb(stack_b);
 	if ((*stack_b)->index < (*stack_b)->next->index)
 		sb(stack_b);
 	while (*stack_a != NULL)

@@ -36,28 +36,8 @@ int	get_sorted_position(t_stack **stack, int minimum)
 		current = current->next;
 	}
 	return (get_position(stack, smallest) + 1);
-	// what if it's the biggest?
 }
 
-// int	get_sorted_position(t_stack **stack, t_stack *node)
-// {
-// 	t_stack	*prev;
-// 	t_stack	*next;
-// 	int		position;
-
-// 	prev = node_get(stack, -1);
-// 	next = *stack;
-// 	position = 1;
-// 	while (next != NULL)
-// 	{
-// 		if (prev->index > node->index && next->index < node->index)
-// 			break ;
-// 		prev = next;
-// 		next = next->next;
-// 		position++;
-// 	}
-// 	return (position);
-// }
 static t_path	get_cheapest(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*current_node;

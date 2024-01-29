@@ -17,7 +17,6 @@ int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	// int		blk_len;
 
 	if (argc == 1)
 		return (0);
@@ -27,21 +26,6 @@ int	main(int argc, char **argv)
 	make_stack(argv, &stack_a);
 	sort_check(&stack_a);
 	index_stack(&stack_a);
-	// pb(&stack_a, &stack_b);
-	// pb(&stack_a, &stack_b);
-	// pb(&stack_a, &stack_b);
-	// pb(&stack_a, &stack_b);
-	// pb(&stack_a, &stack_b);
-	// print_list(&stack_a);
-	// print_list(&stack_b);
-	// execute_path(&stack_a, &stack_b, get_path(&stack_a, &stack_b, node_get(&stack_a, 3)));
-	// pb(&stack_a, &stack_b);
-	// print_list(&stack_a);
-	// print_list(&stack_b);
-	// execute_path(&stack_a, &stack_b, get_path(&stack_a, &stack_b, node_get(&stack_a, 4)));
-	// pb(&stack_a, &stack_b);
-	// print_list(&stack_a);
-	// print_list(&stack_b);
 	sort(&stack_a, &stack_b);
 	sort_check(&stack_a);
 	terminate(&stack_a, NULL, EXIT_FAILURE);

@@ -65,12 +65,13 @@ void	sort(t_stack **stack_a, t_stack **stack_b)
 	pb(stack_a, stack_b, 2);
 	if ((*stack_b)->index < (*stack_b)->next->index)
 		rb(stack_b, 1);
-	while (*stack_a != NULL)
+	while (get_length(stack_a) > 0) // > 3
 	{
 		path = get_cheapest(stack_a, stack_b);
 		execute_path(stack_a, stack_b, path);
 		pb(stack_a, stack_b, 1);
 	}
+	// sort_three(stack_a);
 	tmp = get_position(stack_b, find_biggest(stack_b));
 	if (tmp < get_length(stack_b) / 2)
 		rb(stack_b, tmp - 1);

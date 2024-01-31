@@ -26,6 +26,8 @@ int	main(int argc, char **argv)
 	make_stack(argv, &stack_a);
 	sort_check(&stack_a);
 	index_stack(&stack_a);
+	if (get_length(&stack_a) <= 3)
+		sort_three(&stack_a);
 	sort(&stack_a, &stack_b);
 	sort_check(&stack_a);
 	terminate(&stack_a, NULL, EXIT_FAILURE);

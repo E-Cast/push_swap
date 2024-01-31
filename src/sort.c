@@ -16,7 +16,7 @@ t_stack	*find_biggest(t_stack **stack)
 	return (biggest);
 }
 
-int	get_sorted_position(t_stack **stack, int minimum)
+int	get_sorted_position(t_stack **stack, int node)
 {
 	t_stack	*current;
 	t_stack	*smallest;
@@ -25,17 +25,18 @@ int	get_sorted_position(t_stack **stack, int minimum)
 		return (0);
 	current = *stack;
 	smallest = NULL;
-	if (find_biggest(stack)->index < minimum)
-		return (get_position(stack, find_biggest(stack)));
+	if (find_biggest(stack)->index < node)
+		return (get_position(stack, find_biggest(stack)) + 1);
 	while (current != NULL)
 	{
-		if (smallest == NULL && current->index > minimum)
+		if (smallest == NULL && current->index > node)
 			smallest = current;
-		else if (current->index > minimum && current->index < smallest->index)
+		else if (current->index > node && current->index < smallest->index)
 			smallest = current;
 		current = current->next;
 	}
-	return (get_position(stack, smallest) + 1);
+	// printf("smallest: %i\n", smallest->index);
+	return (get_position(stack, smallest));
 }
 
 static t_path	get_cheapest(t_stack **stack_a, t_stack **stack_b)
@@ -61,19 +62,24 @@ static t_path	get_cheapest(t_stack **stack_a, t_stack **stack_b)
 void	sort(t_stack **stack_a, t_stack **stack_b)
 {
 	t_path	path;
-	// int		tmp;
+	int		biggest;
 
 	pb(stack_a, stack_b, get_length(stack_a) - 3);
+	printf("test: %i %i %i\n", (*stack_a)->index, (*stack_a)->next->index, (*stack_a)->next->next->index);
+	printf("test: %i %i %i\n", (*stack_a)->value, (*stack_a)->next->value, (*stack_a)->next->next->value);
 	sort_three(stack_a);
+	printf("test: %i %i %i\n", (*stack_a)->index, (*stack_a)->next->index, (*stack_a)->next->next->index);
+	printf("test: %i %i %i\n", (*stack_a)->value, (*stack_a)->next->value, (*stack_a)->next->next->value);
 	while (*stack_b != NULL)
 	{
 		path = get_cheapest(stack_a, stack_b);
 		execute_path(stack_a, stack_b, path);
+		printf("%i\n", (*stack_b)->index);
 		pa(stack_a, stack_b, 1);
 	}
-	// tmp = get_position(stack_b, find_biggest(stack_b));
-	// if (tmp < get_length(stack_b) / 2)
-	// 	rb(stack_b, tmp - 1);
-	// else
-	// 	rrb(stack_b, (get_length(stack_b) + 1) - tmp);
+	biggest = get_position(stack_a, find_biggest(stack_a));
+	if (biggest < get_length(stack_a) / 2)
+		ra(stack_a, biggest);
+	else
+		rra(stack_a, (get_length(stack_a)) - biggest);
 }

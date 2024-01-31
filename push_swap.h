@@ -82,6 +82,7 @@ void	pre_sort(t_stack **stack_a, t_stack **stack_b, int total, int blk_len);
 void	final_sort(t_stack **stack_a, t_stack **stack_b, int todo, int blk_len);
 
 // int		get_sorted_position(t_stack **stack, t_stack *node);
+t_stack	*find_biggest(t_stack **stack);
 int		get_sorted_position(t_stack **stack, int index);
 t_path	get_path(t_stack **stack_a, t_stack **stack_b, t_stack *node);
 void	execute_path(t_stack **stack_a, t_stack **stack_b, t_path path);

@@ -6,7 +6,7 @@
 /*   By: ecastong <ecastong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 12:21:10 by ecastong          #+#    #+#             */
-/*   Updated: 2024/01/26 12:21:11 by ecastong         ###   ########.fr       */
+/*   Updated: 2024/01/31 16:50:46 by ecastong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ t_stack	*node_create(int value, t_stack **stack)
 	if (!node)
 		terminate(stack, NULL, EXIT_FAILURE);
 	node->value = value;
-	node->index = 0;
 	node->next = NULL;
 	node->prev = NULL;
 	return (node);

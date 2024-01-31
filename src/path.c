@@ -70,9 +70,7 @@ t_path	get_path(t_stack **stack_a, t_stack **stack_b, t_stack *node)
 	int		sorted_pos;
 
 	position = get_position(stack_b, node);
-	sorted_pos = get_sorted_position(stack_a, node->index); //
-	if (node->index == 6)
-		printf("%i: %i %i\n", node->index, sorted_pos, position);
+	sorted_pos = get_sorted_position(stack_a, node->value); //
 	path.ra = sorted_pos - 1;
 	path.rra = (get_length(stack_a) + 1) - sorted_pos;
 	path.rb = position - 1;

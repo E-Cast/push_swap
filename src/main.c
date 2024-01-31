@@ -25,16 +25,6 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	make_stack(argv, &stack_a);
 	sort_check(&stack_a);
-	index_stack(&stack_a);
-	t_stack *node = stack_a;
-	while (node != NULL)
-	{
-		if (node->value != node->index)
-			printf("value:%i index: %i\n", node->value, node->index);
-		node = node->next;
-	}
-	// if (get_length(&stack_a) <= 3)
-	// 	sort_three(&stack_a);
 	sort(&stack_a, &stack_b);
 	sort_check(&stack_a);
 	terminate(&stack_a, NULL, EXIT_FAILURE);

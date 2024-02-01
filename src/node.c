@@ -6,7 +6,7 @@
 /*   By: ecastong <ecastong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 12:21:10 by ecastong          #+#    #+#             */
-/*   Updated: 2024/02/01 15:30:11 by ecastong         ###   ########.fr       */
+/*   Updated: 2024/02/01 15:50:04 by ecastong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ t_stack	*node_get(t_stack **stack, int position)
 	t_stack	*current_node;
 
 	if (!stack)
+		return (NULL);
+	if (position == 0)
 		return (NULL);
 	current_node = *stack;
 	while (position < 0 && current_node->next != NULL)

@@ -1,8 +1,20 @@
-#include "../push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   r_rotate.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ecastong <ecastong@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/01 15:43:44 by ecastong          #+#    #+#             */
+/*   Updated: 2024/02/01 15:43:48 by ecastong         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-/*Shift down all elements of stack by 1. The last 
+#include	"../push_swap.h"
+
+/*Shifts down all elements of stack by 1. The last 
 	element becomes the first one.*/
-static void	r_rotate(t_stack **stack)
+void	r_rotate(t_stack **stack)
 {
 	t_stack	*new_node;
 
@@ -12,38 +24,35 @@ static void	r_rotate(t_stack **stack)
 	node_addf(stack, new_node);
 }
 
-/*Shift down all elements of stack a by 1. The last 
-	element becomes the first one. Print "rra\n" to stdout.*/
+/*Shifts down all elements of stack_a by 1. The last 
+	element becomes the first one. Prints "rra\n" to stdout.*/
 void	rra(t_stack **stack_a, int iterations)
 {
-	while (iterations > 0)
+	while (iterations--)
 	{
 		r_rotate(stack_a);
 		printf("rra\n");
-		iterations--;
 	}
 }
 
-/*Shift down all elements of stack b by 1. The last 
-	element becomes the first one. Print "rrb\n" to stdout.*/
+/*Shifts down all elements of stack_b by 1. The last 
+	element becomes the first one. Prints "rrb\n" to stdout.*/
 void	rrb(t_stack **stack_b, int iterations)
 {
-	while (iterations > 0)
+	while (iterations--)
 	{
 		r_rotate(stack_b);
 		printf("rrb\n");
-		iterations--;
 	}
 }
 
-/*Execute rra and rrb at the same time. Print "rrr\n" to stdout.*/
+/*Executes rra and rrb at the same time. Prints "rrr\n" to stdout.*/
 void	rrr(t_stack **stack_a, t_stack **stack_b, int iterations)
 {
-	while (iterations > 0)
+	while (iterations--)
 	{
 		r_rotate(stack_a);
 		r_rotate(stack_b);
 		printf("rrr\n");
-		iterations--;
 	}
 }

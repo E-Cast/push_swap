@@ -86,6 +86,11 @@ void	sort(t_stack **stack_a, t_stack **stack_b);
 
 int		ps_atoi(char *str, t_stack **stack);
 
+void	push(t_stack **stack_1, t_stack **stack_2);
+void	r_rotate(t_stack **stack);
+void	rotate(t_stack **stack);
+void	swap(t_stack **stack);
+
 /*Error handling.*/
 
 void	check_size(char	*str, const char *max);

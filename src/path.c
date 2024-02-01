@@ -1,5 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   path.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ecastong <ecastong@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/01 16:03:37 by ecastong          #+#    #+#             */
+/*   Updated: 2024/02/01 16:22:41 by ecastong         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
+/*Sets every value in the path struct to zero.*/
 t_path	zero_path(t_path path)
 {
 	path.ra = 0;
@@ -11,6 +24,7 @@ t_path	zero_path(t_path path)
 	return (path);
 }
 
+/*Adds only the relevant values from the old_path to the path struct.*/
 t_path	clean_path(int shortest, t_path old_path, t_path path)
 {
 	if (shortest == 1)
@@ -39,7 +53,8 @@ t_path	clean_path(int shortest, t_path old_path, t_path path)
 	return (path);
 }
 
-static t_path	get_shortest_path(t_path path)
+/*Gets the shortest path out of all the possible paths.*/
+t_path	get_shortest_path(t_path path)
 {
 	int		path_1;
 	int		path_2;
@@ -63,14 +78,15 @@ static t_path	get_shortest_path(t_path path)
 	return (path);
 }
 
+/*Gets the shortest path for the specified node.*/
 t_path	get_path(t_stack **stack_a, t_stack **stack_b, t_stack *node)
 {
 	t_path	path;
-	int		position;
 	int		sorted_pos;
+	int		position;
 
-	position = get_position(stack_b, node);
 	sorted_pos = get_sorted_position(stack_a, node->value);
+	position = get_position(stack_b, node);
 	path.ra = sorted_pos - 1;
 	path.rra = (get_length(stack_a) + 1) - sorted_pos;
 	path.rb = position - 1;
@@ -87,6 +103,7 @@ t_path	get_path(t_stack **stack_a, t_stack **stack_b, t_stack *node)
 	return (path);
 }
 
+/*Executes the moves stored in the path struct.*/
 void	execute_path(t_stack **stack_a, t_stack **stack_b, t_path path)
 {
 	ra(stack_a, path.ra);

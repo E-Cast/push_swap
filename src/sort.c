@@ -1,16 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ecastong <ecastong@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/01 16:09:40 by ecastong          #+#    #+#             */
+/*   Updated: 2024/02/01 16:25:57 by ecastong         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
+/*Arranges a stack of 3 or less so that it
+	only needs to be rotated to be sorted.*/
 void	sort_three(t_stack **stack)
 {
 	if (get_length(stack) < 3)
 		return ;
-	if (find_biggest(stack)->value == node_get(stack, -1)->value)
+	if (get_biggest(stack)->value == node_get(stack, -1)->value)
 	{
 		if ((*stack)->value < (*stack)->next->value)
 			return ;
 		sa(stack);
 	}
-	else if (find_biggest(stack)->value == node_get(stack, 2)->value)
+	else if (get_biggest(stack)->value == node_get(stack, 2)->value)
 	{
 		if ((*stack)->value > (*stack)->next->next->value)
 			return ;
@@ -24,7 +38,8 @@ void	sort_three(t_stack **stack)
 	}
 }
 
-t_stack	*find_biggest(t_stack **stack)
+/*Gets the biggest node in the satck.*/
+t_stack	*get_biggest(t_stack **stack)
 {
 	t_stack	*current;
 	t_stack	*biggest;
@@ -40,6 +55,7 @@ t_stack	*find_biggest(t_stack **stack)
 	return (biggest);
 }
 
+/*Gets the node's sorted position in the stack.*/
 int	get_sorted_position(t_stack **stack, int node)
 {
 	t_stack	*current;
@@ -49,8 +65,8 @@ int	get_sorted_position(t_stack **stack, int node)
 		return (0);
 	current = *stack;
 	smallest = NULL;
-	if (find_biggest(stack)->value < node)
-		return (get_position(stack, find_biggest(stack)) + 1);
+	if (get_biggest(stack)->value < node)
+		return (get_position(stack, get_biggest(stack)) + 1);
 	while (current != NULL)
 	{
 		if (smallest == NULL && current->value > node)
@@ -62,6 +78,7 @@ int	get_sorted_position(t_stack **stack, int node)
 	return (get_position(stack, smallest));
 }
 
+/*Gets the cheapest path out of all the path for every node in the stack.*/
 static t_path	get_cheapest(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*current_node;
@@ -82,6 +99,7 @@ static t_path	get_cheapest(t_stack **stack_a, t_stack **stack_b)
 	return (cheapest);
 }
 
+/*Sorts stack_a.*/
 void	sort(t_stack **stack_a, t_stack **stack_b)
 {
 	t_path	path;
@@ -96,7 +114,7 @@ void	sort(t_stack **stack_a, t_stack **stack_b)
 		execute_path(stack_a, stack_b, path);
 		pa(stack_a, stack_b, 1);
 	}
-	biggest = get_position(stack_a, find_biggest(stack_a));
+	biggest = get_position(stack_a, get_biggest(stack_a));
 	if (biggest <= get_length(stack_a) / 2)
 		ra(stack_a, biggest);
 	else

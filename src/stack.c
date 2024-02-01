@@ -6,11 +6,11 @@
 /*   By: ecastong <ecastong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 12:20:54 by ecastong          #+#    #+#             */
-/*   Updated: 2024/02/01 15:28:47 by ecastong         ###   ########.fr       */
+/*   Updated: 2024/02/01 16:19:25 by ecastong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../push_swap.h"
+#include "../push_swap.h"
 
 /*Converts a string into an integer.*/
 int	ps_atoi(char *str, t_stack **stack)

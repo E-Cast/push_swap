@@ -6,11 +6,11 @@
 /*   By: ecastong <ecastong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 12:21:10 by ecastong          #+#    #+#             */
-/*   Updated: 2024/02/01 15:50:04 by ecastong         ###   ########.fr       */
+/*   Updated: 2024/02/01 16:13:11 by ecastong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../push_swap.h"
+#include "../push_swap.h"
 
 /*Creates a new node with the value received as argument.*/
 t_stack	*node_create(int value, t_stack **stack)

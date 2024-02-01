@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ecastong <ecastong@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/01 16:24:54 by ecastong          #+#    #+#             */
+/*   Updated: 2024/02/01 16:29:43 by ecastong         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include <stdlib.h>
@@ -27,75 +39,55 @@ typedef struct path
 # define INT_MAX "2147483647"
 # define INT_MIN "2147483648"
 
-# ifndef BLK_NUM_200
-#  define BLK_NUM_200 4
-# endif
-
-# ifndef BLK_NUM_500
-#  define BLK_NUM_500 7
-# endif
-
-// Node manipulation functions.
-
-t_stack	*node_create(int value, t_stack **stack);
-t_stack	*node_get(t_stack **stack, int position);
-void	node_addb(t_stack **stack, t_stack *new_node);
-void	node_addf(t_stack **stack, t_stack *new_node);
-t_stack	*node_unlink(t_stack **stack, t_stack *node);
-
-// Sorting operations.
-
-void	sa(t_stack **stack_a);
-void	sb(t_stack **stack_b);
-void	ss(t_stack **stack_a, t_stack **stack_b);
-void	pa(t_stack **stack_a, t_stack **stack_b, int iterations);
-void	pb(t_stack **stack_a, t_stack **stack_b, int iterations);
-void	ra(t_stack **stack_a, int iterations);
-void	rb(t_stack **stack_b, int iterations);
-void	rr(t_stack **stack_a, t_stack **stack_b, int iterations);
-void	rra(t_stack **stack_a, int iterations);
-void	rrb(t_stack **stack_b, int iterations);
-void	rrr(t_stack **stack_a, t_stack **stack_b, int iterations);
-
-// Error handling.
-
-void	terminate(t_stack **stack_a, t_stack **stack_b, int exit_code);
-
-// Stack creation.
-
-void	make_stack(char **argv, t_stack **stack);
-void	index_stack(t_stack **stack);
-
-// Utility.
-
-int		get_length(t_stack **stack);
-void	sort_check(t_stack **stack);
-int		get_position(t_stack **stack, t_stack *node);
-
-// Sorting algorithms.
-
-void	sort_three(t_stack **stack);
-void	pre_sort(t_stack **stack_a, t_stack **stack_b, int total, int blk_len);
-void	final_sort(t_stack **stack_a, t_stack **stack_b, int todo, int blk_len);
-
-t_stack	*find_biggest(t_stack **stack);
-int		get_sorted_position(t_stack **stack, int index);
-t_path	get_path(t_stack **stack_a, t_stack **stack_b, t_stack *node);
-void	execute_path(t_stack **stack_a, t_stack **stack_b, t_path path);
-void	sort(t_stack **stack_a, t_stack **stack_b);
-
-int		ps_atoi(char *str, t_stack **stack);
-
-void	push(t_stack **stack_1, t_stack **stack_2);
-void	r_rotate(t_stack **stack);
-void	rotate(t_stack **stack);
-void	swap(t_stack **stack);
-
-/*Error handling.*/
+/*Stack creation.*/
 
 void	check_size(char	*str, const char *max);
 void	check_char(char *str, size_t i);
 void	check_args(char **argv);
 void	check_dup(t_stack **stack, t_stack *node);
+t_stack	*node_create(int value, t_stack **stack);
+t_stack	*node_get(t_stack **stack, int position);
+void	node_addb(t_stack **stack, t_stack *new_node);
+void	node_addf(t_stack **stack, t_stack *new_node);
+t_stack	*node_unlink(t_stack **stack, t_stack *node);
+int		ps_atoi(char *str, t_stack **stack);
+void	make_stack(char **argv, t_stack **stack);
+
+/*Sorting operations.*/
+
+void	push(t_stack **stack_1, t_stack **stack_2);
+void	pa(t_stack **stack_a, t_stack **stack_b, int iterations);
+void	pb(t_stack **stack_a, t_stack **stack_b, int iterations);
+void	r_rotate(t_stack **stack);
+void	rra(t_stack **stack_a, int iterations);
+void	rrb(t_stack **stack_b, int iterations);
+void	rrr(t_stack **stack_a, t_stack **stack_b, int iterations);
+void	rotate(t_stack **stack);
+void	ra(t_stack **stack_a, int iterations);
+void	rb(t_stack **stack_b, int iterations);
+void	rr(t_stack **stack_a, t_stack **stack_b, int iterations);
+void	swap(t_stack **stack);
+void	sa(t_stack **stack_a);
+void	sb(t_stack **stack_b);
+void	ss(t_stack **stack_a, t_stack **stack_b);
+
+/*Sorting functions.*/
+
+t_path	zero_path(t_path path);
+t_path	clean_path(int shortest, t_path old_path, t_path path);
+t_path	get_shortest_path(t_path path);
+t_path	get_path(t_stack **stack_a, t_stack **stack_b, t_stack *node);
+void	execute_path(t_stack **stack_a, t_stack **stack_b, t_path path);
+void	sort_three(t_stack **stack);
+t_stack	*get_biggest(t_stack **stack);
+int		get_sorted_position(t_stack **stack, int index);
+void	sort(t_stack **stack_a, t_stack **stack_b);
+
+/*Utility functions.*/
+
+int		get_length(t_stack **stack);
+void	sort_check(t_stack **stack);
+int		get_position(t_stack **stack, t_stack *node);
+void	terminate(t_stack **stack_a, t_stack **stack_b, int exit_code);
 
 #endif

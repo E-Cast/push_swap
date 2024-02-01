@@ -6,7 +6,7 @@
 /*   By: ecastong <ecastong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 12:20:29 by ecastong          #+#    #+#             */
-/*   Updated: 2024/01/31 15:45:30 by ecastong         ###   ########.fr       */
+/*   Updated: 2024/02/01 00:23:55 by ecastong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,3 @@ int	get_position(t_stack **stack, t_stack *node)
 	}
 	return (0);
 }
-

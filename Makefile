@@ -1,7 +1,7 @@
 NAME				:= push_swap
 # >------------------------------< source files
 SRCS	= main.c node.c terminate.c errors.c stack.c utility.c push.c r_rotate.c rotate.c \
-		swap.c sort_three.c path.c sort.c
+		swap.c path.c sort.c
 
 SRCS 	:= $(addprefix $(SRC_DIR), $(SRCS))
 

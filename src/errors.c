@@ -6,18 +6,19 @@
 /*   By: ecastong <ecastong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 12:21:23 by ecastong          #+#    #+#             */
-/*   Updated: 2024/01/26 12:21:24 by ecastong         ###   ########.fr       */
+/*   Updated: 2024/02/01 14:54:43 by ecastong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include	"../push_swap.h"
 
-/*Check if the number currently in the form of a string would cause an 
-	overflow or underflow once converted to an int.*/
-static void	check_size(char	*str, const char *max)
+/*Checks if the number string is bigger than INT_MAX or smaller than INT_MIN.*/
+void	check_size(char	*str, const char *max)
 {
 	int	i;
 
+	if (!str || !max)
+		terminate(NULL, NULL, EXIT_FAILURE);
 	i = 0;
 	while (str[i] >= '0' && str[i] <= '9')
 		i++;
@@ -36,12 +37,13 @@ static void	check_size(char	*str, const char *max)
 	}
 }
 
-/*Check if the specified character inside the string received as 
-	argument is valid.*/
-static void	check_char(char *str, size_t i)
+/*Checks if the character specified inside the string is valid.*/
+void	check_char(char *str, size_t i)
 {
 	int	j;
 
+	if (!str)
+		terminate(NULL, NULL, EXIT_FAILURE);
 	if (str[i] == '-' && i != 0 && str[i - 1] != ' ')
 		terminate(NULL, NULL, EXIT_FAILURE);
 	if (str[i] == '-' && !(str[i + 1] >= '1' && str[i + 1] <= '9'))
@@ -65,13 +67,14 @@ static void	check_char(char *str, size_t i)
 	terminate(NULL, NULL, EXIT_FAILURE);
 }
 
-/*Apply the relevant checks on the array of strings received as 
-	argument to ensure it is valid.*/
+/*Runs checks on the arguments to ensure they are valid.*/
 void	check_args(char **argv)
 {
 	size_t	i;
 	size_t	j;
 
+	if (!argv)
+		terminate(NULL, NULL, EXIT_FAILURE);
 	i = 1;
 	while (argv[i])
 	{
@@ -94,12 +97,13 @@ void	check_args(char **argv)
 	}
 }
 
-/*check if there is another node in stack with the same value as the one 
-	received as argument.*/
+/*Checks if there is another node with the same value in the stack.*/
 void	check_dup(t_stack **stack, t_stack *node)
 {
 	t_stack	*current_node;
 
+	if (!stack || !node)
+		terminate(NULL, NULL, EXIT_FAILURE);
 	current_node = *stack;
 	while (current_node != NULL)
 	{

@@ -1,5 +1,43 @@
 #include "../push_swap.h"
 
+/*Sort three or less elements under three moves.*/
+// void	sort_three(t_stack **stack)
+// {
+// 	if (get_length(stack) > 2)
+// 	{
+// 		if (find_biggest(stack)->value == node_get(stack, 1)->value)
+// 			ra(stack, 1);
+// 		else if (find_biggest(stack)->value == node_get(stack, 2)->value)
+// 			rra(stack, 1);
+// 	}
+// 	if ((*stack)->value > (*stack)->next->value)
+// 		sa(stack);
+// }
+
+void	sort_three(t_stack **stack)
+{
+	if (get_length(stack) < 3)
+		return ;
+	if (find_biggest(stack)->value == node_get(stack, 3)->value)
+	{
+		if ((*stack)->value < (*stack)->next->value)
+			return ;
+		sa(stack);
+	}
+	else if (find_biggest(stack)->value == node_get(stack, 2)->value)
+	{
+		if ((*stack)->value > (*stack)->next->next->value)
+			return ;
+		sa(stack);
+	}
+	else
+	{
+		if ((*stack)->next->value < (*stack)->next->next->value)
+			return ;
+		sa(stack);
+	}
+}
+
 t_stack	*find_biggest(t_stack **stack)
 {
 	t_stack	*current;
@@ -63,7 +101,8 @@ void	sort(t_stack **stack_a, t_stack **stack_b)
 	t_path	path;
 	int		biggest;
 
-	pb(stack_a, stack_b, get_length(stack_a) - 3);
+	if (get_length(stack_a) > 3)
+		pb(stack_a, stack_b, get_length(stack_a) - 3);
 	sort_three(stack_a);
 	while (*stack_b != NULL)
 	{
@@ -72,8 +111,9 @@ void	sort(t_stack **stack_a, t_stack **stack_b)
 		pa(stack_a, stack_b, 1);
 	}
 	biggest = get_position(stack_a, find_biggest(stack_a));
-	if (biggest < get_length(stack_a) / 2)
+	if (biggest <= get_length(stack_a) / 2)
 		ra(stack_a, biggest);
 	else
 		rra(stack_a, (get_length(stack_a)) - biggest);
+	sort_check(stack_a);
 }

@@ -1,17 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ecastong <ecastong@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/31 19:01:49 by ecastong          #+#    #+#             */
+/*   Updated: 2024/02/01 00:17:32 by ecastong         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
-
-void	print_list(t_stack **stack)
-{
-	t_stack	*current_node;
-
-	current_node = *stack;
-	while (current_node != NULL)
-	{
-		printf("%i\n", current_node->value);
-		current_node = current_node->next;
-	}
-	printf("\b\n");
-}
 
 int	main(int argc, char **argv)
 {
@@ -26,6 +25,5 @@ int	main(int argc, char **argv)
 	make_stack(argv, &stack_a);
 	sort_check(&stack_a);
 	sort(&stack_a, &stack_b);
-	sort_check(&stack_a);
-	terminate(&stack_a, NULL, EXIT_FAILURE);
+	terminate(&stack_a, &stack_b, EXIT_FAILURE);
 }

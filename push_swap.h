@@ -23,7 +23,7 @@ typedef struct path
 	int		moves;
 }	t_path;
 
-# define VALID_CHARS " -1234567890"
+# define VALID_CHARS " -0123456789"
 # define INT_MAX "2147483647"
 # define INT_MIN "2147483648"
 
@@ -60,8 +60,6 @@ void	rrr(t_stack **stack_a, t_stack **stack_b, int iterations);
 // Error handling.
 
 void	terminate(t_stack **stack_a, t_stack **stack_b, int exit_code);
-void	check_args(char **argv);
-void	check_dup(t_stack **stack, t_stack *node);
 
 // Stack creation.
 
@@ -80,11 +78,18 @@ void	sort_three(t_stack **stack);
 void	pre_sort(t_stack **stack_a, t_stack **stack_b, int total, int blk_len);
 void	final_sort(t_stack **stack_a, t_stack **stack_b, int todo, int blk_len);
 
-// int		get_sorted_position(t_stack **stack, t_stack *node);
 t_stack	*find_biggest(t_stack **stack);
 int		get_sorted_position(t_stack **stack, int index);
 t_path	get_path(t_stack **stack_a, t_stack **stack_b, t_stack *node);
 void	execute_path(t_stack **stack_a, t_stack **stack_b, t_path path);
 void	sort(t_stack **stack_a, t_stack **stack_b);
+
+
+/*Error handling.*/
+
+void	check_size(char	*str, const char *max);
+void	check_char(char *str, size_t i);
+void	check_args(char **argv);
+void	check_dup(t_stack **stack, t_stack *node);
 
 #endif

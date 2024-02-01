@@ -6,14 +6,14 @@
 /*   By: ecastong <ecastong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 12:20:44 by ecastong          #+#    #+#             */
-/*   Updated: 2024/01/26 12:20:46 by ecastong         ###   ########.fr       */
+/*   Updated: 2024/02/01 00:15:59 by ecastong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-/*Free the stacks passed as argument and close the program while returning the 
-	exit code, if the exit code indicates failure print "Error\n" on stdout*/
+/*Free the stacks passed as argument and close the program with the appropriate
+	exit code. In case of error, print "Error\n" on stdout*/
 void	terminate(t_stack **stack_a, t_stack **stack_b, int exit_code)
 {
 	t_stack	*node;
@@ -31,10 +31,6 @@ void	terminate(t_stack **stack_a, t_stack **stack_b, int exit_code)
 			free(node);
 	}
 	if (exit_code == EXIT_FAILURE)
-	{
 		printf("Error\n");
-		exit(EXIT_FAILURE);
-	}
-	else
-		exit(EXIT_SUCCESS);
+	exit(exit_code);
 }

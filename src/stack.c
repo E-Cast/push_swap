@@ -6,7 +6,7 @@
 /*   By: ecastong <ecastong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 12:20:54 by ecastong          #+#    #+#             */
-/*   Updated: 2024/01/31 16:52:02 by ecastong         ###   ########.fr       */
+/*   Updated: 2024/02/01 00:26:16 by ecastong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,43 +59,3 @@ void	make_stack(char **argv, t_stack **stack)
 		i++;
 	}
 }
-
-// /*Check if the stack received as argument is indexed.*/
-// static int	is_indexed(t_stack **stack)
-// {
-// 	t_stack	*current;
-
-// 	current = *stack;
-// 	while (current)
-// 	{
-// 		if (current->value == 0)
-// 			return (0);
-// 		current = current->next;
-// 	}
-// 	return (1);
-// }
-
-// /*Index the list received as argument in order of 
-// 	their desired final sorted position.*/
-// void	index_stack(t_stack **stack)
-// {
-// 	t_stack	*current;
-// 	t_stack	*smallest;
-// 	int		i;
-
-// 	i = 1;
-// 	while (!is_indexed(stack))
-// 	{
-// 		current = *stack;
-// 		while (current && current->value != 0)
-// 			current = current->next;
-// 		smallest = current;
-// 		while (current)
-// 		{
-// 			if (current->value == 0 && current->value < smallest->value)
-// 				smallest = current;
-// 			current = current->next;
-// 		}
-// 		smallest->value = i++;
-// 	}
-// }

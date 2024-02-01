@@ -84,6 +84,7 @@ t_path	get_path(t_stack **stack_a, t_stack **stack_b, t_stack *node);
 void	execute_path(t_stack **stack_a, t_stack **stack_b, t_path path);
 void	sort(t_stack **stack_a, t_stack **stack_b);
 
+int		ps_atoi(char *str, t_stack **stack);
 
 /*Error handling.*/
 

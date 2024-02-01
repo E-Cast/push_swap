@@ -6,7 +6,7 @@
 /*   By: ecastong <ecastong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 12:21:10 by ecastong          #+#    #+#             */
-/*   Updated: 2024/02/01 14:54:44 by ecastong         ###   ########.fr       */
+/*   Updated: 2024/02/01 15:30:11 by ecastong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_stack	*node_create(int value, t_stack **stack)
 }
 
 /*Gets the node at the specified position in the stack.
-	If the position is -1, get the last node of the stack.*/
+	If the position is -1 , gets the last node of the stack.*/
 t_stack	*node_get(t_stack **stack, int position)
 {
 	t_stack	*current_node;

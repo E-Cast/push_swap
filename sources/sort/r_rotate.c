@@ -6,11 +6,11 @@
 /*   By: ecastong <ecastong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 15:43:44 by ecastong          #+#    #+#             */
-/*   Updated: 2024/02/01 16:15:47 by ecastong         ###   ########.fr       */
+/*   Updated: 2024/02/02 19:27:08 by ecastong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 /*Shifts down all elements of stack by 1. The last 
 	element becomes the first one.*/

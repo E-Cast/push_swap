@@ -6,7 +6,7 @@
 /*   By: ecastong <ecastong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:24:54 by ecastong          #+#    #+#             */
-/*   Updated: 2024/02/01 16:29:43 by ecastong         ###   ########.fr       */
+/*   Updated: 2024/02/01 18:08:27 by ecastong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 
-// Constants' definitions.
+/*Structs.*/
 
 typedef struct s_stack
 {
@@ -35,9 +35,15 @@ typedef struct path
 	int		moves;
 }	t_path;
 
+/*Constants.*/
+
 # define VALID_CHARS " -0123456789"
 # define INT_MAX "2147483647"
 # define INT_MIN "2147483648"
+
+/*Utility.*/
+
+void	terminate(t_stack **stack_a, t_stack **stack_b, int exit_code);
 
 /*Stack creation.*/
 
@@ -73,6 +79,9 @@ void	ss(t_stack **stack_a, t_stack **stack_b);
 
 /*Sorting functions.*/
 
+int		get_length(t_stack **stack);
+void	sort_check(t_stack **stack);
+int		get_position(t_stack **stack, t_stack *node);
 t_path	zero_path(t_path path);
 t_path	clean_path(int shortest, t_path old_path, t_path path);
 t_path	get_shortest_path(t_path path);
@@ -81,13 +90,7 @@ void	execute_path(t_stack **stack_a, t_stack **stack_b, t_path path);
 void	sort_three(t_stack **stack);
 t_stack	*get_biggest(t_stack **stack);
 int		get_sorted_position(t_stack **stack, int index);
+t_path	get_cheapest(t_stack **stack_a, t_stack **stack_b);
 void	sort(t_stack **stack_a, t_stack **stack_b);
-
-/*Utility functions.*/
-
-int		get_length(t_stack **stack);
-void	sort_check(t_stack **stack);
-int		get_position(t_stack **stack, t_stack *node);
-void	terminate(t_stack **stack_a, t_stack **stack_b, int exit_code);
 
 #endif

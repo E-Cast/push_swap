@@ -6,11 +6,11 @@
 /*   By: ecastong <ecastong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 19:01:49 by ecastong          #+#    #+#             */
-/*   Updated: 2024/02/01 00:17:32 by ecastong         ###   ########.fr       */
+/*   Updated: 2024/02/02 19:27:36 by ecastong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 int	main(int argc, char **argv)
 {

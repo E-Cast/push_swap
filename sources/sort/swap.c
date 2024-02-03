@@ -6,11 +6,11 @@
 /*   By: ecastong <ecastong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 12:20:51 by ecastong          #+#    #+#             */
-/*   Updated: 2024/02/01 16:15:54 by ecastong         ###   ########.fr       */
+/*   Updated: 2024/02/02 19:48:15 by ecastong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 /*Swaps the first 2 elements at the top of stack. Does nothing 
 	if there is only one or no elements.*/

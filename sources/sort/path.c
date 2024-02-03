@@ -6,11 +6,11 @@
 /*   By: ecastong <ecastong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:03:37 by ecastong          #+#    #+#             */
-/*   Updated: 2024/02/01 16:22:41 by ecastong         ###   ########.fr       */
+/*   Updated: 2024/02/02 19:27:47 by ecastong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 /*Sets every value in the path struct to zero.*/
 t_path	zero_path(t_path path)

@@ -6,11 +6,11 @@
 /*   By: ecastong <ecastong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 12:21:23 by ecastong          #+#    #+#             */
-/*   Updated: 2024/02/01 16:11:37 by ecastong         ###   ########.fr       */
+/*   Updated: 2024/02/02 19:49:29 by ecastong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 /*Checks if the number string is bigger than INT_MAX or smaller than INT_MIN.*/
 void	check_size(char	*str, const char *max)

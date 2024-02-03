@@ -6,11 +6,11 @@
 /*   By: ecastong <ecastong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:09:40 by ecastong          #+#    #+#             */
-/*   Updated: 2024/02/01 16:25:57 by ecastong         ###   ########.fr       */
+/*   Updated: 2024/02/02 19:42:01 by ecastong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 /*Arranges a stack of 3 or less so that it
 	only needs to be rotated to be sorted.*/
@@ -79,7 +79,7 @@ int	get_sorted_position(t_stack **stack, int node)
 }
 
 /*Gets the cheapest path out of all the path for every node in the stack.*/
-static t_path	get_cheapest(t_stack **stack_a, t_stack **stack_b)
+t_path	get_cheapest(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*current_node;
 	t_path	cheapest;

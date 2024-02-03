@@ -6,7 +6,7 @@
 /*   By: ecastong <ecastong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 12:21:23 by ecastong          #+#    #+#             */
-/*   Updated: 2024/02/02 19:49:29 by ecastong         ###   ########.fr       */
+/*   Updated: 2024/02/02 21:45:46 by ecastong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,10 @@ void	check_dup(t_stack **stack, t_stack *node)
 	while (current_node != NULL)
 	{
 		if (current_node != node && current_node->value == node->value)
+		{
+			free(node);
 			terminate(stack, NULL, EXIT_FAILURE);
+		}
 		current_node = current_node->next;
 	}
 }

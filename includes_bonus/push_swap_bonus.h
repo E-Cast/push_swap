@@ -4,6 +4,12 @@
 # include <stdio.h>
 # include <unistd.h>
 
+# include <fcntl.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 5
+# endif
+
 /*Structs.*/
 
 typedef struct s_stack
@@ -36,5 +42,27 @@ void	node_addf(t_stack **stack, t_stack *new_node);
 t_stack	*node_unlink(t_stack **stack, t_stack *node);
 int		ps_atoi(char *str, t_stack **stack);
 void	make_stack(char **argv, t_stack **stack);
+
+/*Sorting operations.*/
+
+void	push(t_stack **stack_1, t_stack **stack_2);
+void	pa(t_stack **stack_a, t_stack **stack_b, int iterations);
+void	pb(t_stack **stack_a, t_stack **stack_b, int iterations);
+void	r_rotate(t_stack **stack);
+void	rra(t_stack **stack_a, int iterations);
+void	rrb(t_stack **stack_b, int iterations);
+void	rrr(t_stack **stack_a, t_stack **stack_b, int iterations);
+void	rotate(t_stack **stack);
+void	ra(t_stack **stack_a, int iterations);
+void	rb(t_stack **stack_b, int iterations);
+void	rr(t_stack **stack_a, t_stack **stack_b, int iterations);
+void	swap(t_stack **stack);
+void	sa(t_stack **stack_a);
+void	sb(t_stack **stack_b);
+void	ss(t_stack **stack_a, t_stack **stack_b);
+
+
+
+char	*get_next_line(int fd);
 
 #endif

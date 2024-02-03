@@ -21,6 +21,11 @@ INCLUDES		:=	-I $(INC_DIR)
 
 B_SRC			=	main.c \
 					terminate.c \
+					get_next_line.c \
+					push.c \
+					r_rotate.c \
+					rotate.c \
+					swap.c \
 					init/errors.c \
 					init/node.c \
 					init/stack.c \

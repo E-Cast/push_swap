@@ -3,6 +3,8 @@
 
 push_swap
 objects/
+checker
+objects_bonus/
 
 imgui.ini
 visualizer

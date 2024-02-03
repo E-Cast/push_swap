@@ -19,7 +19,11 @@ OBJ				:=	$(subst $(SRC_DIR), $(OBJ_DIR), $(SRC:.c=.o))
 NAME			:=	push_swap
 INCLUDES		:=	-I $(INC_DIR)
 
-B_SRC			= main.c
+B_SRC			=	main.c \
+					terminate.c \
+					init/errors.c \
+					init/node.c \
+					init/stack.c \
 
 B_SRC_DIR		:=	sources_bonus/
 B_OBJ_DIR		:=	objects_bonus/
@@ -62,7 +66,7 @@ $(B_OBJ_DIR)%.o: $(B_SRC_DIR)%.c
 	@echo "$(CC) $< $@"
 
 $(B_OBJ_DIR):
-	mkdir -p $(B_OBJ_DIR)
+	mkdir -p $(B_OBJ_DIR)init
 
 re_bonus: clean bonus
 

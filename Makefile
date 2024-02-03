@@ -19,13 +19,15 @@ OBJ				:=	$(subst $(SRC_DIR), $(OBJ_DIR), $(SRC:.c=.o))
 
 NAME			:=	push_swap
 CC				:=	gcc
-FLAGS			:=	-Wall -Werror -Wextra -I $(INC_DIR)
+FLAGS			=	-Wall -Werror -Wextra -I $(INC_DIR)
 
-all: $(NAME)
-
-$(NAME): $(OBJ_DIR) $(OBJ)
+all: $(OBJ_DIR) $(OBJ)
 	@$(CC) $(FLAGS) $(OBJ) -o $@
 	@echo "$(CC) $(FLAGS) -o $@"
+
+debug: $(OBJ_DIR) $(OBJ)
+	@$(CC) $(FLAGS) -g $(OBJ) -o $(NAME)
+	@echo "$(CC) $(FLAGS) -g -o $(NAME)"
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	$(CC) $(FLAGS) -c $< -o $@

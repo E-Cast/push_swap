@@ -6,7 +6,7 @@
 /*   By: ecastong <ecastong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 12:21:06 by ecastong          #+#    #+#             */
-/*   Updated: 2024/02/03 17:36:08 by ecastong         ###   ########.fr       */
+/*   Updated: 2024/02/04 18:02:34 by ecastong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,7 @@ void	push(t_stack **stack_1, t_stack **stack_2)
 void	pa(t_stack **stack_a, t_stack **stack_b, int iterations)
 {
 	while (iterations--)
-	{
 		push(stack_b, stack_a);
-		// printf("pa\n");
-	}
 }
 
 /*Takes the first element at the top of stack_a and puts it at the top of
@@ -40,8 +37,5 @@ void	pa(t_stack **stack_a, t_stack **stack_b, int iterations)
 void	pb(t_stack **stack_a, t_stack **stack_b, int iterations)
 {
 	while (iterations--)
-	{
 		push(stack_a, stack_b);
-		// printf("pb\n");
-	}
 }

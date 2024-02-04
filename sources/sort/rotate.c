@@ -6,7 +6,7 @@
 /*   By: ecastong <ecastong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 12:21:00 by ecastong          #+#    #+#             */
-/*   Updated: 2024/02/02 19:48:51 by ecastong         ###   ########.fr       */
+/*   Updated: 2024/02/04 18:03:33 by ecastong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,10 @@ void	ra(t_stack **stack_a, int iterations)
 	element becomes the last one. Prints "rb\n" to stdout.*/
 void	rb(t_stack **stack_b, int iterations)
 {
-	while (iterations > 0)
+	while (iterations--)
 	{
 		rotate(stack_b);
 		printf("rb\n");
-		iterations--;
 	}
 }
 

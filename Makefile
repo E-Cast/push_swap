@@ -79,7 +79,7 @@ $(LIBFT): libft
 	@make --no-print-directory -C $(LIBFT_DIR)
 
 norm:
-	@norminette $(SRC) $(INC_DIR) $(B_SRC) || true
+	@norminette $(SRC) $(B_SRC) $(INC_DIR) || true
 
 clean:
 	@rm -f $(OBJ) $(B_OBJ)

@@ -6,13 +6,13 @@
 /*   By: ecastong <ecastong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 12:21:23 by ecastong          #+#    #+#             */
-/*   Updated: 2024/02/03 13:08:07 by ecastong         ###   ########.fr       */
+/*   Updated: 2024/02/04 17:16:16 by ecastong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 
-/*Checks if the number string is bigger than INT_MAX or smaller than INT_MIN.*/
+/*Checks if the number string is bigger than MAX_INT or smaller than MIN_INT.*/
 void	check_size(char	*str, const char *max)
 {
 	int	i;
@@ -87,9 +87,9 @@ void	check_args(char **argv)
 			if ((j == 0 || argv[i][j - 1] == ' '))
 			{
 				if (argv[i][j] == '-')
-					check_size(&argv[i][j + 1], INT_MIN);
+					check_size(&argv[i][j + 1], MIN_INT);
 				else
-					check_size(&argv[i][j], INT_MAX);
+					check_size(&argv[i][j], MAX_INT);
 			}
 			j++;
 		}

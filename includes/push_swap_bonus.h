@@ -1,14 +1,9 @@
 #ifndef PUSH_SWAP_BONUS_H
 # define PUSH_SWAP_BONUS_H
+# include "../libft/includes/libft.h"
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
-
-# include <fcntl.h>
-
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 5
-# endif
 
 /*Structs.*/
 
@@ -22,8 +17,8 @@ typedef struct s_stack
 /*Constants.*/
 
 # define VALID_CHARS " -0123456789"
-# define INT_MAX "2147483647"
-# define INT_MIN "2147483648"
+# define MAX_INT "2147483647"
+# define MIN_INT "2147483648"
 
 /*Utility.*/
 
@@ -60,9 +55,5 @@ void	swap(t_stack **stack);
 void	sa(t_stack **stack_a);
 void	sb(t_stack **stack_b);
 void	ss(t_stack **stack_a, t_stack **stack_b);
-
-
-
-char	*get_next_line(int fd);
 
 #endif

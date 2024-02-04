@@ -6,7 +6,7 @@
 /*   By: ecastong <ecastong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 19:01:49 by ecastong          #+#    #+#             */
-/*   Updated: 2024/02/03 11:59:35 by ecastong         ###   ########.fr       */
+/*   Updated: 2024/02/04 17:18:22 by ecastong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,5 @@ int	main(int argc, char **argv)
 	sort_check(&stack_a);
 	sort(&stack_a, &stack_b);
 	terminate(&stack_a, &stack_b, EXIT_FAILURE);
+	// printf("%li\n", ft_strlen("Hello World!"));
 }

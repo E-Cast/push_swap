@@ -6,12 +6,13 @@
 /*   By: ecastong <ecastong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:24:54 by ecastong          #+#    #+#             */
-/*   Updated: 2024/02/02 22:45:41 by ecastong         ###   ########.fr       */
+/*   Updated: 2024/02/04 17:45:26 by ecastong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+# include "../libft/includes/libft.h"
 # include <stdlib.h>
 # include <stdio.h>
 
@@ -38,8 +39,8 @@ typedef struct path
 /*Constants.*/
 
 # define VALID_CHARS " -0123456789"
-# define INT_MAX "2147483647"
-# define INT_MIN "2147483648"
+# define MAX_INT "2147483647"
+# define MIN_INT "2147483648"
 
 /*Utility.*/
 

@@ -1,4 +1,5 @@
 #include "push_swap_bonus.h"
+// #include "libft.h"
 
 void	sort_check(t_stack **stack)
 {
@@ -18,26 +19,6 @@ void	sort_check(t_stack **stack)
 	}
 	printf("OK\n");
 	terminate(stack, NULL, EXIT_SUCCESS);
-}
-
-int	ft_strncmp(const char *str1, const char *str2, size_t nbr)
-{
-	size_t	i;
-
-	if (!str1 && !str2)
-		return (0);
-	if (!str1)
-		return (-1);
-	if (!str2)
-		return (1);
-	i = 0;
-	while ((str1[i] || str2[i]) && i < nbr)
-	{
-		if (str1[i] != str2[i])
-			return ((unsigned char)str1[i] - (unsigned char)str2[i]);
-		i++;
-	}
-	return (0);
 }
 
 void	check_input(t_stack **stack_a, t_stack **stack_b, char *input)

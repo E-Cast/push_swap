@@ -6,13 +6,13 @@
 /*   By: ecastong <ecastong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 18:01:50 by ecastong          #+#    #+#             */
-/*   Updated: 2024/02/04 18:01:51 by ecastong         ###   ########.fr       */
+/*   Updated: 2024/02/04 19:57:21 by ecastong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_BONUS_H
 # define PUSH_SWAP_BONUS_H
-# include "../libft/includes/libft.h"
+# include "libft.h"
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>

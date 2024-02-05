@@ -37,15 +37,16 @@ CC				:=	gcc
 FLAGS			:=	-Wall -Werror -Wextra
 # DEBUG			:=	-g 
 INC_DIR			:= 	includes
-INCLUDES		:=	-I $(INC_DIR) -I $(LIBFT_DIR)includes
+INCLUDES		:=	-I $(INC_DIR) -I libft/includes
 LIBFT_DIR		:=	libft/
 LIBFT			:=	$(LIBFT_DIR)libft.a
+LIBFT_FLAGS		:=	-L $(LIBFT_DIR) -lft
 
 all: $(NAME)
 
 $(NAME): $(OBJ_DIR) $(OBJ) $(LIBFT)
-	@$(CC) $(FLAGS) $(DEBUG) $(INCLUDES) $(OBJ) $(LIBFT) -o $@
-	@echo "$(CC) $(FLAGS) $(DEBUG)-o $(NAME)"
+	@$(CC) $(DEBUG) $(FLAGS) $(LIBFT_FLAGS) $(INCLUDES) $(OBJ) $(LIBFT) -o $@
+	@echo "$(CC) $(DEBUG)$(FLAGS) $(LIBFT_FLAGS) $(INCLUDES) -o $(NAME)"
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	@$(CC) $(FLAGS) $(DEBUG) $(INCLUDES) -c $< -o $@
@@ -59,8 +60,8 @@ re: clean all
 bonus: $(B_NAME)
 
 $(B_NAME): $(B_OBJ_DIR) $(B_OBJ) $(LIBFT)
-	@$(CC) $(FLAGS) $(DEBUG) $(INCLUDES) $(B_OBJ) $(LIBFT) -o $@
-	@echo "$(CC) $(FLAGS) $(DEBUG)-o $(B_NAME)"
+	@$(CC) $(DEBUG) $(FLAGS) $(LIBFT_FLAGS) $(INCLUDES) $(B_OBJ) $(LIBFT) -o $@
+	@echo "$(CC) $(DEBUG)$(FLAGS) $(LIBFT_FLAGS) $(INCLUDES) -o $(B_NAME)"
 
 $(B_OBJ_DIR)%.o: $(B_SRC_DIR)%.c
 	@$(CC) $(FLAGS) $(DEBUG) $(INCLUDES) -c $< -o $@
@@ -82,10 +83,14 @@ norm:
 	@norminette $(SRC) $(B_SRC) $(INC_DIR) || true
 
 clean:
-	@rm -f $(OBJ) $(B_OBJ)
-	@rm -f $(NAME) $(B_NAME)
+	@rm -f $(OBJ)
+	@rm -f $(NAME)
 
-fclean: clean
+clean_bonus:
+	@rm -f $(B_OBJ)
+	@rm -f $(B_NAME)
+
+fclean: clean clean_bonus
 	@rm -rf $(OBJ_DIR) $(B_OBJ_DIR)
 	@make --no-print-directory -C $(LIBFT_DIR) fclean
 

@@ -33,24 +33,23 @@ B_SRC			:=	$(addprefix $(B_SRC_DIR), $(B_SRC))
 B_OBJ			:=	$(subst $(B_SRC_DIR), $(B_OBJ_DIR), $(B_SRC:.c=.o))
 B_NAME			:=	checker
 
-CC				:=	gcc
-FLAGS			:=	-Wall -Werror -Wextra
 # DEBUG			:=	-g 
+CC				:=	gcc -Wall -Werror -Wextra $(DEBUG)
 INC_DIR			:= 	includes
 INCLUDES		:=	-I $(INC_DIR) -I libft/includes
 LIBFT_DIR		:=	libft/
 LIBFT			:=	$(LIBFT_DIR)libft.a
-LIBFT_FLAGS		:=	-L $(LIBFT_DIR) -lft
+LIBFT_FLAGS		:=	-L $(LIBFT_DIR)
 
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJ_DIR) $(OBJ)
-	@$(CC) $(DEBUG) $(FLAGS) $(LIBFT_FLAGS) $(INCLUDES) $(OBJ) $(LIBFT) -o $@
-	@echo "$(CC) $(DEBUG)$(FLAGS) $(LIBFT_FLAGS) $(INCLUDES) -o $(NAME)"
+	@$(CC)$(INCLUDES) $(LIBFT_FLAGS) $(OBJ) -lft -o $@
+	@echo "$(CC)$(INCLUDES) $(LIBFT_FLAGS) -lft -o $(NAME)"
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
-	@$(CC) $(FLAGS) $(DEBUG) $(INCLUDES) -c $< -o $@
-	@echo "$(CC) $(DEBUG)$< $@"
+	@$(CC)$(INCLUDES) -c $< -o $@
+	@echo "$(CC)$< $@"
 
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)init $(OBJ_DIR)sort
@@ -64,12 +63,12 @@ re: clean all
 bonus: $(B_NAME)
 
 $(B_NAME): $(LIBFT) $(B_OBJ_DIR) $(B_OBJ)
-	@$(CC) $(DEBUG) $(FLAGS) $(LIBFT_FLAGS) $(INCLUDES) $(B_OBJ) $(LIBFT) -o $@
-	@echo "$(CC) $(DEBUG)$(FLAGS) $(LIBFT_FLAGS) $(INCLUDES) -o $(B_NAME)"
+	@$(CC)$(INCLUDES) $(LIBFT_FLAGS) $(B_OBJ) -lft -o $@
+	@echo "$(CC)$(INCLUDES) $(LIBFT_FLAGS) -lft -o $(B_NAME)"
 
 $(B_OBJ_DIR)%.o: $(B_SRC_DIR)%.c
-	@$(CC) $(FLAGS) $(DEBUG) $(INCLUDES) -c $< -o $@
-	@echo "$(CC) $< $@"
+	@$(CC)$(INCLUDES) -c $< -o $@
+	@echo "$(CC)$< $@"
 
 $(B_OBJ_DIR):
 	mkdir -p $(B_OBJ_DIR)init $(B_OBJ_DIR)sort
@@ -89,7 +88,7 @@ libft:
 	@git submodule update --remote
 
 $(LIBFT): libft/Makefile
-	make --no-print-directory -C $(LIBFT_DIR)
+	@make --no-print-directory -C $(LIBFT_DIR)
 
 clean_libft:
 	@make --no-print-directory -C $(LIBFT_DIR) clean

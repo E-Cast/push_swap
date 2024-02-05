@@ -100,4 +100,4 @@ fclean: clean clean_bonus
 norm:
 	@norminette $(SRC) $(B_SRC) $(INC_DIR) || true
 
-.PHONY: all clean re bonus clean_bonus re_bonus fclean norm
+.PHONY: all clean re bonus clean_bonus re_bonus fclean norm libft

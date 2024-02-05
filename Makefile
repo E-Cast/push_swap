@@ -44,7 +44,7 @@ LIBFT_FLAGS		:=	-L $(LIBFT_DIR) -lft
 
 all: $(NAME)
 
-$(NAME): $(OBJ_DIR) $(OBJ) $(LIBFT)
+$(NAME): $(LIBFT) $(OBJ_DIR) $(OBJ)
 	@$(CC) $(DEBUG) $(FLAGS) $(LIBFT_FLAGS) $(INCLUDES) $(OBJ) $(LIBFT) -o $@
 	@echo "$(CC) $(DEBUG)$(FLAGS) $(LIBFT_FLAGS) $(INCLUDES) -o $(NAME)"
 
@@ -63,7 +63,7 @@ re: clean all
 
 bonus: $(B_NAME)
 
-$(B_NAME): $(B_OBJ_DIR) $(B_OBJ) $(LIBFT)
+$(B_NAME): $(LIBFT) $(B_OBJ_DIR) $(B_OBJ)
 	@$(CC) $(DEBUG) $(FLAGS) $(LIBFT_FLAGS) $(INCLUDES) $(B_OBJ) $(LIBFT) -o $@
 	@echo "$(CC) $(DEBUG)$(FLAGS) $(LIBFT_FLAGS) $(INCLUDES) -o $(B_NAME)"
 
@@ -80,12 +80,16 @@ clean_bonus:
 
 re_bonus: clean_bonus bonus
 
-fetch_libft:
+libft/Makefile:
 	@git submodule init
 	@git submodule update --remote
 
-$(LIBFT): fetch_libft
-	@make --no-print-directory -C $(LIBFT_DIR)
+libft:
+	@git submodule init
+	@git submodule update --remote
+
+$(LIBFT): libft/Makefile
+	make --no-print-directory -C $(LIBFT_DIR)
 
 clean_libft:
 	@make --no-print-directory -C $(LIBFT_DIR) clean
@@ -97,4 +101,4 @@ fclean: clean clean_bonus
 norm:
 	@norminette $(SRC) $(B_SRC) $(INC_DIR) || true
 
-.PHONY: all clean re bonus clean_bonus re_bonus fetch_libft libft fclean norm
+.PHONY: all clean re bonus clean_bonus re_bonus fclean norm

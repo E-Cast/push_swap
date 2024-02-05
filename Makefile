@@ -55,6 +55,10 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)init $(OBJ_DIR)sort
 
+clean:
+	@rm -f $(OBJ)
+	@rm -f $(NAME)
+
 re: clean all
 
 bonus: $(B_NAME)
@@ -70,28 +74,27 @@ $(B_OBJ_DIR)%.o: $(B_SRC_DIR)%.c
 $(B_OBJ_DIR):
 	mkdir -p $(B_OBJ_DIR)init $(B_OBJ_DIR)sort
 
-re_bonus: clean bonus
-
-libft:
-	@git submodule init
-	@git submodule update --remote
-
-$(LIBFT): libft
-	@make --no-print-directory -C $(LIBFT_DIR)
-
-norm:
-	@norminette $(SRC) $(B_SRC) $(INC_DIR) || true
-
-clean:
-	@rm -f $(OBJ)
-	@rm -f $(NAME)
-
 clean_bonus:
 	@rm -f $(B_OBJ)
 	@rm -f $(B_NAME)
+
+re_bonus: clean_bonus bonus
+
+fetch_libft:
+	@git submodule init
+	@git submodule update --remote
+
+$(LIBFT): fetch_libft
+	@make --no-print-directory -C $(LIBFT_DIR)
+
+clean_libft:
+	@make --no-print-directory -C $(LIBFT_DIR) clean
 
 fclean: clean clean_bonus
 	@rm -rf $(OBJ_DIR) $(B_OBJ_DIR)
 	@make --no-print-directory -C $(LIBFT_DIR) fclean
 
-.PHONY: all re norm bonus re_bonus norm_bonus clean fclean
+norm:
+	@norminette $(SRC) $(B_SRC) $(INC_DIR) || true
+
+.PHONY: all clean re bonus clean_bonus re_bonus fetch_libft libft fclean norm

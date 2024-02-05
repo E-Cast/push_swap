@@ -6,7 +6,7 @@
 /*   By: ecastong <ecastong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:09:40 by ecastong          #+#    #+#             */
-/*   Updated: 2024/02/02 19:42:01 by ecastong         ###   ########.fr       */
+/*   Updated: 2024/02/04 20:47:32 by ecastong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,5 +119,6 @@ void	sort(t_stack **stack_a, t_stack **stack_b)
 		ra(stack_a, biggest);
 	else
 		rra(stack_a, (get_length(stack_a)) - biggest);
-	sort_check(stack_a);
+	if (*stack_b == NULL)
+		sort_check(stack_a);
 }

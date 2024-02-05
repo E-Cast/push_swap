@@ -6,7 +6,7 @@
 /*   By: ecastong <ecastong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 18:01:50 by ecastong          #+#    #+#             */
-/*   Updated: 2024/02/04 19:57:21 by ecastong         ###   ########.fr       */
+/*   Updated: 2024/02/04 20:56:35 by ecastong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_stack
 /*Utility.*/
 
 void	terminate(t_stack **stack_a, t_stack **stack_b, int exit_code);
+int		sort_check(t_stack **stack_a, t_stack **stack_b);
 
 /*Stack creation.*/
 

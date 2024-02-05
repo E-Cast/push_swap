@@ -6,7 +6,7 @@
 /*   By: ecastong <ecastong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 12:20:51 by ecastong          #+#    #+#             */
-/*   Updated: 2024/02/04 18:03:45 by ecastong         ###   ########.fr       */
+/*   Updated: 2024/02/04 20:43:24 by ecastong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,20 +26,20 @@ void	swap(t_stack **stack)
 }
 
 /*Swaps the first 2 elements at the top of stack_a. Does nothing 
-	if there is only one or no elements. Prints "sa\n" to stdout.*/
+	if there is only one or no elements.*/
 void	sa(t_stack **stack_a)
 {
 	swap(stack_a);
 }
 
 /*Swaps the first 2 elements at the top of stack_b. Does nothing 
-	if there is only one or no elements. Prints "sb\n" to stdout.*/
+	if there is only one or no elements.*/
 void	sb(t_stack **stack_b)
 {
 	swap(stack_b);
 }
 
-/*Executes sa and sb at the same time. Prints "ss\n" to stdout.*/
+/*Executes sa and sb at the same time.*/
 void	ss(t_stack **stack_a, t_stack **stack_b)
 {
 	swap(stack_a);

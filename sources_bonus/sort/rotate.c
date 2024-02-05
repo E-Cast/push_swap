@@ -6,7 +6,7 @@
 /*   By: ecastong <ecastong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 12:21:00 by ecastong          #+#    #+#             */
-/*   Updated: 2024/02/04 18:04:13 by ecastong         ###   ########.fr       */
+/*   Updated: 2024/02/04 20:43:30 by ecastong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	rotate(t_stack **stack)
 }
 
 /*Shifts up all elements of stack_a by 1. The first 
-	element becomes the last one. Prints "ra\n" to stdout.*/
+	element becomes the last one.*/
 void	ra(t_stack **stack_a, int iterations)
 {
 	while (iterations--)
@@ -33,14 +33,14 @@ void	ra(t_stack **stack_a, int iterations)
 }
 
 /*Shifts up all elements of stac_ b by 1. The first 
-	element becomes the last one. Prints "rb\n" to stdout.*/
+	element becomes the last one.*/
 void	rb(t_stack **stack_b, int iterations)
 {
 	while (iterations--)
 		rotate(stack_b);
 }
 
-/*Executes ra and rb at the same time. Prints "rr\n" to stdout.*/
+/*Executes ra and rb at the same time.*/
 void	rr(t_stack **stack_a, t_stack **stack_b, int iterations)
 {
 	while (iterations--)

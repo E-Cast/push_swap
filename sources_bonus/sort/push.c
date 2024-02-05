@@ -6,7 +6,7 @@
 /*   By: ecastong <ecastong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 12:21:06 by ecastong          #+#    #+#             */
-/*   Updated: 2024/02/04 18:02:34 by ecastong         ###   ########.fr       */
+/*   Updated: 2024/02/04 20:42:52 by ecastong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	push(t_stack **stack_1, t_stack **stack_2)
 }
 
 /*Takes the first element at the top of stack_b and puts it at the top of
-	stack_a. Does nothing if stack_b is empty. Prints "pa\n" to stdout.*/
+	stack_a. Does nothing if stack_b is empty.*/
 void	pa(t_stack **stack_a, t_stack **stack_b, int iterations)
 {
 	while (iterations--)
@@ -33,7 +33,7 @@ void	pa(t_stack **stack_a, t_stack **stack_b, int iterations)
 }
 
 /*Takes the first element at the top of stack_a and puts it at the top of
-	stack_b. Does nothing if stack_a is empty. Prints "pb\n" to stdout.*/
+	stack_b. Does nothing if stack_a is empty.*/
 void	pb(t_stack **stack_a, t_stack **stack_b, int iterations)
 {
 	while (iterations--)

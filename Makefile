@@ -80,12 +80,12 @@ clean_bonus:
 re_bonus: clean_bonus bonus
 
 libft/Makefile:
-	@git submodule init
-	@git submodule update --remote
+	git submodule init
+	git submodule update --remote
 
 libft:
-	@git submodule init
-	@git submodule update --remote
+	git submodule init
+	git submodule update --remote
 
 $(LIBFT): libft/Makefile
 	@make --no-print-directory -C $(LIBFT_DIR)

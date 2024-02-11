@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecastong <ecastong@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ecast <ecast@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:24:54 by ecastong          #+#    #+#             */
-/*   Updated: 2024/02/04 19:57:18 by ecastong         ###   ########.fr       */
+/*   Updated: 2024/02/10 19:11:04 by ecast            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ t_stack	*node_get(t_stack **stack, int position);
 void	node_addb(t_stack **stack, t_stack *new_node);
 void	node_addf(t_stack **stack, t_stack *new_node);
 t_stack	*node_unlink(t_stack **stack, t_stack *node);
-int		ps_atoi(char *str, t_stack **stack);
 void	make_stack(char **argv, t_stack **stack);
 
 /*Sorting operations.*/

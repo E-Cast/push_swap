@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecastong <ecastong@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ecast <ecast@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 12:21:23 by ecastong          #+#    #+#             */
-/*   Updated: 2024/02/04 17:16:16 by ecastong         ###   ########.fr       */
+/*   Updated: 2024/02/10 19:09:29 by ecast            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	check_size(char	*str, const char *max)
 	i = 0;
 	while (str[i] >= '0' && str[i] <= '9')
 		i++;
-	if (i > 10)
+	if (i > 10) 
 		terminate(NULL, NULL, EXIT_FAILURE);
 	if (i < 10)
 		return ;

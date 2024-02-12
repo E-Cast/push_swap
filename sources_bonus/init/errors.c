@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecast <ecast@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ecastong <ecastong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 12:21:23 by ecastong          #+#    #+#             */
-/*   Updated: 2024/02/10 19:09:29 by ecast            ###   ########.fr       */
+/*   Updated: 2024/02/12 17:48:55 by ecastong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	check_size(char	*str, const char *max)
 	i = 0;
 	while (str[i] >= '0' && str[i] <= '9')
 		i++;
-	if (i > 10) 
+	if (i > 10)
 		terminate(NULL, NULL, EXIT_FAILURE);
 	if (i < 10)
 		return ;
@@ -40,8 +40,6 @@ void	check_size(char	*str, const char *max)
 /*Checks if the character specified inside the string is valid.*/
 void	check_char(char *str, size_t i)
 {
-	int	j;
-
 	if (!str)
 		terminate(NULL, NULL, EXIT_FAILURE);
 	if (str[i] == '-' && i != 0 && str[i - 1] != ' ')
@@ -57,13 +55,8 @@ void	check_char(char *str, size_t i)
 	}
 	if (str[i] == ' ' && (i == 0 || str[i + 1] == ' ' || str[i + 1] == '\0'))
 		terminate(NULL, NULL, EXIT_FAILURE);
-	j = 0;
-	while (VALID_CHARS[j] != '\0')
-	{
-		if (VALID_CHARS[j] == str[i])
-			return ;
-		j++;
-	}
+	if (my_isset(str[i], VALID_CHARS) == 1)
+		return ;
 	terminate(NULL, NULL, EXIT_FAILURE);
 }
 

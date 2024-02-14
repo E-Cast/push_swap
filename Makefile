@@ -86,6 +86,7 @@ libft/Makefile:
 libft:
 	git submodule init
 	git submodule update --remote
+	@make --no-print-directory -C $(LIBFT_DIR) re
 
 $(LIBFT): libft/Makefile
 	@make --no-print-directory -C $(LIBFT_DIR)

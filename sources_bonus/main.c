@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecastong <ecastong@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ecast <ecast@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 18:02:05 by ecastong          #+#    #+#             */
-/*   Updated: 2024/02/04 20:55:56 by ecastong         ###   ########.fr       */
+/*   Updated: 2024/02/21 19:27:28 by ecast            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,25 +38,25 @@ int	sort_check(t_stack **stack_a, t_stack **stack_b)
 	If it isn't, prints "Error\n" to stderr.*/
 void	check_input(t_stack **stack_a, t_stack **stack_b, char *input)
 {
-	if (ft_strncmp(input, "pa\n", 100) == 0)
+	if (my_strcmp(input, "pa\n") == 0)
 		pa(stack_a, stack_b, 1);
-	else if (ft_strncmp(input, "pb\n", 100) == 0)
+	else if (my_strcmp(input, "pb\n") == 0)
 		pb(stack_a, stack_b, 1);
-	else if (ft_strncmp(input, "rra\n", 100) == 0)
+	else if (my_strcmp(input, "rra\n") == 0)
 		rra(stack_a, 1);
-	else if (ft_strncmp(input, "rrb\n", 100) == 0)
+	else if (my_strcmp(input, "rrb\n") == 0)
 		rrb(stack_b, 1);
-	else if (ft_strncmp(input, "rrr\n", 100) == 0)
+	else if (my_strcmp(input, "rrr\n") == 0)
 		rrr(stack_a, stack_b, 1);
-	else if (ft_strncmp(input, "ra\n", 100) == 0)
+	else if (my_strcmp(input, "ra\n") == 0)
 		ra(stack_a, 1);
-	else if (ft_strncmp(input, "rb\n", 100) == 0)
+	else if (my_strcmp(input, "rb\n") == 0)
 		rb(stack_b, 1);
-	else if (ft_strncmp(input, "rr\n", 100) == 0)
+	else if (my_strcmp(input, "rr\n") == 0)
 		rr(stack_a, stack_b, 1);
-	else if (ft_strncmp(input, "sa\n", 100) == 0)
+	else if (my_strcmp(input, "sa\n") == 0)
 		sa(stack_a);
-	else if (ft_strncmp(input, "sb\n", 100) == 0)
+	else if (my_strcmp(input, "sb\n") == 0)
 		sb(stack_b);
 	else
 		ft_putstr_fd("Error\n", STDERR_FILENO);
@@ -72,7 +72,7 @@ int	main(int argc, char **argv)
 		return (0);
 	check_args(argv);
 	stack_a = NULL;
-	stack_b = NULL;
+	stack_b = NULL;		
 	(void) stack_b;
 	(void) argv;
 	make_stack(argv, &stack_a);
